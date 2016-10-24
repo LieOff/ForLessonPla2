@@ -1,0 +1,362 @@
+﻿about		MORE ABOUT THE APPLICATION
+accountsReceivables	account receivables
+Active	Active
+add			Add
+addFromGallery	Add from gallery
+additionally	ADDITIONALLY
+address		Address
+agreement		Using the app, you accept the terms of the license agreement.
+allStocks	All stocks
+alreadyOrdered	already in order
+alreadyReturned	already in return
+amount		Amount
+amountOfOrdersForToday	amount of orders for today
+answer		Answer
+apply		Apply
+at	at
+available	Available
+autoFillOrder	Fill in the order automatically?
+back		Back
+baseUnit	Base unit
+bitMobile	BIT.MOBILE
+bitmobileDesc	BIT.MOBILE is a division of the First Bit. We are developing mobile solutions for business.
+brand	Brand
+brands	Brands
+byDocs		DOCUMENTS
+cancel		Cancel
+cancel			Cancel
+caps_summary	SUMMARY
+choose_action	Choose action:
+clear_coord		Clear
+clearFilter		Clear filter?
+clearValue		Clear value
+clickToInsert	Click to insert
+client		Client
+clients		Clients
+Closed	Closed
+commentary	Commentary
+completedVisits		COMPLETED VISITS
+contact		Contact
+contactName		Contact name
+contacts	Contacts
+contractor		Contarctor
+contractors		Contarctors
+coordinates	Coordinates
+coordinatesAreSet	Coordinates Are Set
+copy		Copy
+couldnt_be_cleaned	Field couldn't be cleaned
+countPrice	Count price
+currency	$
+current		Current
+date		Date
+debt	Debt
+delete	Delete
+deleteImage		Delete this image?
+deleteItem	Delete this item
+deliveryDate	Delivery date
+description	Description
+description	Description
+details		Details
+developer	DEVELOPER
+discard		Discard
+discount	Discount
+distribution	Distribution
+distributor	Distributor
+distributor	Distributor
+docNumber	Document number
+document	Document
+documentSum	Document sum
+done		Done
+edit		Edit
+editChange		Edit
+editSKU			Edit
+email		E-mail
+email_regexp	^(([а-яА-ЯёЁa-zA-Z0-9_-]+\.)*[а-яА-ЯёЁa-zA-Z0-9_-]+@[а-яА-ЯёЁa-zA-Z0-9_-]+(\.[а-яА-ЯёЁa-zA-Z0-9_-]+)*\.[а-яА-ЯёЁa-zA-Z]{2,6})?$
+empty_field	Field couldn't be cleaned
+emptyContactOwner	Contact owner field is empty
+emptyList	List is empty
+enc_amount_regexp	^(\d{1,8}((\.|,)\d{1,2})?)?$
+encashment	Encashment
+encashmentAmount	Encashment amount
+encashmentSum	Encashment sum
+end	Continue
+endPlanTime		End Plan date
+enterDateTime	Enter date, time
+enterUnregistered	Enter unregistered
+error	Error
+errorMessage	Error message
+execute		Execute
+executed		executed
+executedtask	TODAY EXECUTED
+executionDate	Fact execution
+facing		Facing
+false		False
+features	Features
+fillInVisitReason	Reason of visit should be filled
+fillNoOrderReason	Reason for not taking the order should be filled.
+filter	Filter
+firstBIT	The First BIT - effective solutions for your business. The leader in the automation market 1C with 17 years experience!
+forward		Next
+further	further
+go_back	Back
+groups	Groups
+hideImage	Hide image
+icons		When creating an application used Icons8 icons. Developer website icons8.com
+idea		To suggest an idea
+imageNotAvailable	Image not available now
+impossibleToCreateVisit	Impossible to create plan visit until coordinates aren't set. Retry to get location?
+impossibleToDelete	Impossible to delete, order is already in base
+impossibleToEdit	Impossible to edit, order is already in base
+incompletedVisits	INCOMPLETED VISITS
+incorrect		Incorrect
+info		About
+information	Information
+inn			INN
+inn_regexp		^((\d{10})|(\d{12})|)?$
+insert_answer	INSERT VALUE..
+insert_text	Insert text..
+IP				IP
+isntSelected	Isn't selected
+kpi			KPI
+kpp			KPP
+kpp_regexp		^(\d{9}|)?$
+leadGetPersonalDemoAccess	and get personal demo access
+leadFail	Connect to network or enter without registration
+lastSync	Last synchronization
+leadThanks	Thank You for granted data! Our specialists will contact with You in short!
+leadFillDataPlease	Please, fill data
+leadOrderDemo	Order demonstration
+leadPhone	+7-812-320-65-66
+leadMail	mobilespb@1cbit.ru
+legal_address	Legal address
+legal_name	Legal name
+lessStart	End date can not be less than the start date
+lessToday	Start Date can not be less than the current
+list	List
+location	Set outlet location
+locationSetFailed	Location set is failed.
+logo		logoEn
+logout			Logout
+logoutConfirm	Logout
+logoutQuery		When you exit will delete all data
+main		MAIN
+mainData	MAIN DATA
+mainInfo	MAIN INFORMATION
+makeSnapshot	Make snapshot
+map			Map
+markUp		Mark Up
+markUp		MarkUp
+maximumAmount	Amount limit
+messageNulls	There shouldn't be empty fields.
+name	Name
+nameSurname	Name, surname
+new			New
+newClient	New client
+newContact	New contact
+newOrder	Create new order
+newOutlet	Create new outlet
+newPrice	New price
+newTask			New task
+newTasks	NEW TASKS
+newVisit	New visit
+nextVisitDate	Next visit date
+NKO				NKO
+NO		No
+no_contacts	NO CONTACTS
+no_questions	No questions
+no_questions_list	NO QUESTIONS
+no_orders		NO ORDERS
+no_returns		NO RETURNS
+no_tasks	No tasks
+no_visitPlans	No visits to display
+noContractors	No contractors
+noContractorsMessage	This outlet has no contractors
+noCoordinates	Coordinates aren't set
+noDescriGiven	(no description given)
+noImage	No image found
+NoLimit		No limit
+noLogout		Require syncronization
+nonregular	Non-regular
+noNumber	No number
+noOrder			No order reason field should be filled
+noPriceLists	No Price Lists
+noSnapshot	No snapshot
+noSuccess		An error has occurred while sending. The data is not sent
+notAvailable	Snapshot isnt't available
+notAvailableShort	N/A
+noteAsExecuted	Note as executed
+noteAsNew	Note as new
+notLimited		unlimited
+OAO				OAO
+of	of
+Ok		Ok
+OOO				OOO
+OP				OP
+order		Order
+OrderDiscount	Order discount, %
+orderDiscountReset	Discounts are recalculated
+orderHistory	ORDER HISTORY
+orderInfo	ORDER INFORMATION
+orderInfoSmall	Order information
+OrderMarkUp	Order markup , %
+orderParameters	ORDER PARAMETERS:
+orders		Orders
+OrderskuWillBeDeleted	Part of SKUs will be removed from order. Continue?
+OrderSKUWillRevised	SKU list has been revised
+orderSum	Order amount
+others		Other applications
+outlet		Outlet
+outlet_class	Outlet class
+outlet_description	Outlet description
+outlet_short	Outlet
+outlet_territory Territory
+outlet_type	Outlet type
+outletClass	Outlet class
+outletContacts	OUTLET CINTACTS
+outlets		Outlets
+outletSnapshots	Outlet snapshots
+outletType	Outlet type
+outOfStock	Out Of Stock
+overdue		Overdue:
+overdueSum	[overdue]
+owner			Contact owner
+ownership		Ownership type
+packUnit	Pack unit
+parameter	Parameter
+parameters	Parameters
+partner			Partner
+partnerContacts	PARTNER CONTACTS
+password	Password
+pcs			pcs.
+phone		Phone number
+phone_regexp	^(((8|\+7)[\- ]?)?(\(?\d{3,4}\)?[\- ]?)?[\d\- ]{5,10})?$
+plandate	Plan date
+planned	planned
+planVisit	Planned
+position		Position
+Potential	Potential
+price		Price
+price		Price
+price2		Price:
+priceList	Price list
+programmingCollectionForToday	encashment for today
+quantity	Quantity
+questAnswers	Questionnairy
+questions	Questions
+ready		Done
+reasonForEmptyOrder	Reason for not taking the order
+receivable	Receivable
+receivableAmount	RECEIVABLE AMOUNT
+receivables	Receivables
+recommended		recommend.
+refresh		Refresh
+refreshScreen	Refresh screen
+register	Register
+regular		Regular
+repeat		Repeat
+requiredFieldsLeft	Required fields left
+requiredLeft	Reqired answers left:
+reshot			Make another snapshot
+result		Result
+retrieve	Retrieve
+return			Return
+ReturnDiscount	Return discount, %
+returnHistory	RETURN HISTORY
+returnInfo		RETURN INFORMATION
+returnInfoSmall	information about order
+ReturnMarkUp	Return markup , %
+returnParameters	RETURN PARAMETERS
+returns			Returns
+ReturnskuWillBeDeleted	Part of SKUs will be removed from return. Continue?
+ReturnSKUWillRevised	SKU list has been revised
+returnSum		Return sum
+save		Save
+saveChanges	Save changes?
+schedule	Schedule
+scheduled	scheduled
+search		Search
+select_answer	SELECT VALUE..
+select_answer_low	Select value..
+selectOutlet	Select outlet
+selectOwner		Owner isn't selected
+selectUnit	Select unit:
+send			Send log
+sending			Sending..
+set			Set
+setCoordinates	Set outlet coordinates by current location?
+setCoords	Set coordinates
+setDate			Set date
+settings	Settings
+setVisitCoordinates		Retry to set coordinates?
+show			Show image
+showImage	Show image
+showOnMap	Show on map
+sku			SKU
+skuAdd			Adding SKU
+skuDetail		Detail
+skuInOrder	ADDED SKUs
+skuInReturn		Returning SKUs
+skuList			LIST OF SKUs
+snapshot	Snapshot
+snapshot			Snapshot
+snapshotAttached	Snapshot attached
+spread		Spread
+spreadOnDocuments	Spread on documents
+startPlanTime	Start Plan date
+startTime	Start time
+status		Status
+stock		Stock
+stock		Stock
+stockPlace	Stock
+success			Data successfully sent
+sum			Sum
+sumDiscount	Sum discount
+sumMarkUp	Sum markup
+summary		Summary
+superDescription	SuperAgent - mobile solution for collecting orders, survey and merchandising, control employee.
+support		Tech Support
+sync		Sync
+Synchronization_has_not_been_performed	Synchronization has not been performed
+synchronizationData	SYNCHRONIZATION OF DATA
+synchronizationPhoto	SYNCHRONIZATION OF PHOTOS
+synchronize	Synchronize
+syncPhoto	Sync photo
+target		Target
+targets		Targets
+task		Task
+tasks		Tasks
+TextMes	  Text
+todo		ToDo
+todoDone	Tasks done
+total_receivable	Total sum:
+totalamount	Total amount
+true		True
+TSJ				TSJ
+turnaroundTime	Turnaround time
+typeanswer	Insert answers..
+unit		Unit
+unknown	unknown
+unplanned	Unplanned
+untill			untill
+username	User name
+valueList	Value list
+version		Version
+visit		Visit
+visit_end_question	After visit ends you will not be allowed to edit it
+visitdate		Visit date
+visitReason	Visit reason
+visitReason		Visit reason field should be filled
+visits		Visits
+visitsKPI	Plan visits	KPI
+visitTotal	Visit total
+vpPerformed	performed
+vpUnplanned	unplanned
+vpVisits	visits
+web_site	Web-site
+webSite		Website Developer
+YES		Yes
+ZAO				ZAO
+OutWhatEver		Synchronization wasn't completed last time. All data will be lost. Quit?
+today		Today
+agentLogo		super_agent_En
+TooMoreLetter		The number of symbols is not available.

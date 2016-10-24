@@ -1,0 +1,988 @@
+body {
+	background-color: #4A4C60;
+	color: #ffffff;
+}
+
+line {
+	width: 100%;
+	height: 1px;
+	background-color: #c8c7cc;
+	dock-align: top;
+}
+
+sv {
+	width: 100%;
+	height: 100%;
+	background-color: #efeff4;
+}
+
+sv dl {
+	background-color: #ffffff;
+}
+
+sv vl {
+	background-color: #ffffff;
+}
+
+sv hl {
+	height: 100%;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+vl {
+	width: 100%;
+	height: 100%;
+}
+
+hl {
+	width: 100%;
+}
+
+dl {
+	width: 100%;
+	height: 100%;
+}
+
+dl hl {
+	width: 100%;
+	height: 100%;
+	dock-align: top;
+}
+
+shl {
+	width: 100%;
+	height: 100%;
+}
+
+svl {
+	width: 100%;
+	height: 100%;
+}
+
+svl vl {
+	height: 100%;
+	width: 100%;
+}
+
+TextView {
+	background-color: none;
+	color: #000000;
+}
+
+Button {
+	selected-color: #b2b2b7;
+	color: #FF7C4A;
+}
+
+WebMapGoogle{
+	width: 100%;
+	height: 100%;
+}
+
+MemoEdit {
+	color: #FF7C4A;
+	background-color: #ffffff;
+}
+
+.top_navigator {
+	height: 6.7mm;
+	dock-align: top;
+	background-color: #4a4c60;
+}
+
+.top_navigator Button {
+	selected-color: #D3D3D3;
+}
+
+.top_navigator hl {
+	width: 100%;
+	height: 100%;
+	dock-align: top;
+	horizontal-align: central;
+}
+
+.top_navigator hl TextView {
+	width: 100%;
+	height: 100%;
+	margin-left: 0%;
+	padding-top: 26%;
+	horizontal-align: central;
+	text-align: center;
+	color: #ffffff;
+	font: 39.5% arial;
+	selected-color: #D3D3D3;
+}
+
+.top_navigator hl Image {
+	selected-color: #D3D3D3;
+}
+
+.top_navigator dl {
+	width: 16.3mm;
+	height: 100%;
+}
+
+.btn_forward {
+	width: 16.3mm;
+	height: 100%;
+	dock-align: right;
+}
+
+.btn_forward TextView {
+	width: 100%;
+	height: 100%;
+	margin-right: 1mm;
+	padding-top: 26%;
+	text-align: right;
+	color: #FF7C4A;
+	font: 39.5% arial;
+}
+
+.btn_back {
+	width: 16.3mm;
+	height: 100%;
+	dock-align: left;
+}
+
+.btn_back TextView {
+	width: 100%;
+	height: 100%;
+	margin-left: 1mm;
+	padding-top: 26%;
+	text-align: left;
+	dock-align: left;
+	color: #FF7C4A;
+	font: 39.5% arial;
+}
+
+.btn_back img {
+	background-image: url(arrow_left.png);
+	margin-top: 24%;
+	margin-left: 1mm;
+	dock-align: left;
+	height: 50%;
+}
+
+.btn_menu {
+	width: 7mm;
+	height: 100%;
+	dock-align: left;
+	margin-right: 0%;
+	margin-left: 0%;
+}
+
+.btn_menu menuIcon {
+	background-image: url(button_menu.png);
+	height: 37%;
+	margin-top: 30%;
+	margin-left: 1mm;
+	margin-bottom: 20%;
+}
+
+.btn_space{
+	width: 7mm;
+	height: 100%;
+	dock-align: right;
+}
+
+.mode_left_button_on {
+	background-image: url(mode_left_button_on.png);
+	width: 48%;
+	height: 67%;
+	margin-top: 5.7%;
+	margin-left: 2%;
+	horizontal-align: central;
+}
+
+.mode_left_button_on select_zone {
+	selected-color: #FF7C4A;
+}
+
+.mode_left_button_on select_zone TextView {
+	color: #f8f8f8;
+}
+
+.mode_right_button_off {
+	background-image: url(mode_right_button_off.png);
+	width: 48%;
+	height: 67%;
+	margin-top: 5.7%;
+	horizontal-align: central;
+}
+
+.mode_right_button_off select_zone TextView {
+	color: #FF7C4A;
+}
+
+.mode_right_button_on {
+	background-image: url(mode_right_button_on.png);
+	width: 48%;
+	height: 67%;
+	margin-top: 5.7%;
+	horizontal-align: central;
+}
+
+.mode_right_button_on select_zone {
+	selected-color: #FF7C4A;
+}
+
+.mode_right_button_on select_zone TextView {
+	color: #f8f8f8;
+}
+
+.mode_left_button_off {
+	background-image: url(mode_left_button_off.png);
+	width: 48%;
+	height: 67%;
+	margin-top: 5.7%;
+	margin-left: 2%;
+	horizontal-align: central;
+}
+
+.mode_left_button_off select_zone TextView {
+	color: #FF7C4A;
+}
+
+.small_grid {
+	height: 6.7mm;
+	width: 49.6mm;
+	selected-color: #bacdce;
+	dock-align: top;
+	horizontal-align: central;
+	background-color: #4A4C60;
+}
+
+.small_grid hl select_zone {
+	width: 100%;
+	height: 90%;
+	margin-top: 5%;
+	/*margin-left: 5%;*/
+}
+
+.small_grid hl select_zone TextView {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding-top: 20%;
+	font: 50% arial;
+}
+
+.search {
+	height: 6.7mm;
+	background-color: #ffffff;
+	dock-align: top;
+}
+
+.search dl {
+	height: 64%;
+	width: 100%;
+	dock-align: left;
+	vertical-align: central;
+	margin-left: 1.7mm;
+	margin-top: 20%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ffffff;
+	border-radius: 1mm;
+	background-color: #ffffff;
+}
+
+.search dl img {
+	background-image: url(search.png);
+	height: 46.4%;
+	margin-top: 20%;
+	margin-left: 2%;
+	margin-right: 1.5%;
+	background-color: #ffffff;
+	dock-align: left;
+}
+
+.VertDisp{
+	height: 6.7mm;
+	width: 100%;
+	background-color: #4A4C60;
+}
+
+.search Button {
+	margin-left: 1.7mm;
+	margin-top: 18%;
+	margin-right: 1.7mm;
+	width: 10mm;
+	height: 65%;
+	dock-align: right;
+	background-color: #ff7c4a;
+	color: #f8f8f8;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FF7C4A;
+	border-radius: 1mm;
+	font: 55% arial;
+}
+
+.search dl EditText {
+	width: auto;
+	height: 100%;
+	margin-right: 2%;
+	padding-top: 10%;
+	background-color: #ffffff;
+	color: #000000;
+	border-style: none;
+	dock-align: right;
+	font: 60% arial;
+}
+
+.caption_grid {
+	height: 6.7mm;
+	selected-color: #bacdce;
+	background-color: #efeff4;
+	dock-align: top;
+	padding-left: 2.4mm;
+}
+
+.caption_grid TextView {
+	width: 25% auto;
+	height: 50%;
+	text-align: left;
+	/*margin-left: 3.5%;*/
+	margin-top: 50%;
+	white-space: nowrap;
+	font: 60% arial;
+	color: #8E8E93;
+}
+
+.required{
+	background-image: url(empty.png);
+	width: 4%;
+	height: 35%;
+	margin-top: 45%;
+}
+
+.empty_caption_grid {
+	height: 3.3mm;
+	selected-color: #bacdce;
+	background-color: #efeff4;
+	dock-align: top;
+}
+
+.margin_top {
+	height: 3.3mm;
+	background-color: #efeff4;
+	dock-align: top;
+}
+
+.margin_top1 {
+	height: 1mm;
+	background-color: #efeff4;
+	dock-align: top;
+}
+
+.end_of_block {
+	height: 3.3mm;
+	selected-color: #bacdce;
+	background-color: #efeff4;
+	dock-align: top;
+}
+
+.grid {
+	height: 13.8mm;
+	width: 100%;
+	background-color: #ffffff;
+	selected-color: #bacdce;
+}
+
+.grid line {
+	width: 100%;
+	height: 1px;
+	background-color: #c8c7cc;
+}
+
+.grid img {
+	height: 1.9mm;
+	width: 1.3mm;
+	margin-top: 16%;
+	dock-align: right;
+	margin-right: 2.4mm;
+	background-image: url(arrow.png);
+}
+
+.grid vl {
+	width: 100%;
+	height: 100%;
+	dock-align: left;
+	padding-top: 11%;
+	padding-left: 2.4mm;
+}
+
+.grid vl MemoEdit {
+	height: 40%;
+	width: 90%;
+	font: 45% Arial;
+	placeholder-color: #FF7C4A;
+}
+
+.grid vl EditText {
+	height: 40%;
+	width: 90%;
+	font: 45% Arial;
+	color: #FF7C4A;
+}
+
+.grid vl dl {
+	height: 21%;
+	width: 100%;
+}
+
+.grid vl dl TextView {
+	width: 100%;
+	height: 100%;
+	margin-top: 5%;
+	white-space: normal;
+	font: 68% Arial;
+	color: #8e8e93;
+	dock-align: left;
+}
+
+.grid vl dl Button {
+	width: 13.5mm;
+	height: 100%;
+	dock-align: right;
+	margin-left: -32%;
+	margin-right: 3%;
+	margin-top: 0%;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FF7C4A;
+	border-radius: 5px;
+	color: #FF7C4A;
+	text-align: center;
+	font: 65% arial;
+}
+
+.main_row {
+	width: 100%;
+	height: 40%;
+	white-space: normal;
+	placeholder-color: #FF7C4A;
+	font: 42% Arial;
+	color: #495052;
+}
+
+.description_row {
+	width: 100%;
+	height: 23%;
+	white-space: normal;
+	font: 62% Arial;
+	color: #8e8e93;
+}
+
+.half_grid {
+	height: 6.7mm;
+	width: 100%;
+	background-color: #ffffff;
+	padding-left: 2.4mm;
+	padding-right: 2.4mm;
+}
+
+.half_grid Button {
+	height: 100%;
+	width: 100%;
+	vertical-align: central;
+	font: 37% arial;
+}
+
+.half_grid TextView {
+	height: 40%;
+	width: 45%;
+	vertical-align: central;
+	white-space: nowrap;
+	font: 80% Arial;
+	color: #FF7C4A;
+}
+
+.half_grid hlf_value {
+	text-align: right;
+	color: #8e8e93;
+}
+
+.positive_decision {
+	color: #32CD32;
+}
+
+.negative_decision {
+	color: #f00;
+}
+
+
+.blue_mark {
+	background-image: url(blue_mark.png);
+	height: 0%;
+	width: 1.9mm;
+	dock-align: left;
+	margin-left: 1.4mm;
+	margin-right: 1.4mm;
+}
+
+.y_blue_mark {
+	background-image: url(y_blue_mark.png);
+	height: 0%;
+	width: 1.9mm;
+	dock-align: left;
+	margin-left: 1.4mm;
+	margin-right: 1.4mm;
+}
+
+.yellow_mark {
+	background-image: url(yellow_mark.png);
+	height: 0%;
+	width: 1.9mm;
+	dock-align: left;
+	margin-left: 1.4mm;
+	margin-right: 1.4mm;
+}
+
+.red_mark {
+	background-image: url(red_mark.png);
+	height: 0%;
+	width: 1.9mm;
+	dock-align: left;
+	margin-left: 1.4mm;
+	margin-right: 1.4mm;
+}
+
+.no_mark {
+	height: 100%;
+	width: 4.7mm;
+	dock-align: left;
+}
+
+.1_scroll {
+	background-image: url(scroll_1.png);
+	width: 100%;
+	height: 2px;
+}
+
+.2_scroll {
+	background-image: url(scroll_2.png);
+	width: 100%;
+	height: 2px;
+}
+
+.3_scroll {
+	background-image: url(scroll_3.png);
+	width: 100%;
+	height: 2px;
+}
+
+.4_scroll {
+	background-image: url(scroll_4.png);
+	width: 100%;
+	height: 2px;
+}
+
+.5_scroll {
+	background-image: url(scroll_5.png);
+	width: 100%;
+	height: 2px;
+	dock-align: top;
+}
+
+.6_scroll {
+	background-image: url(scroll_6.png);
+	width: 100%;
+	height: 2px;
+	dock-align: top;
+}
+
+.7_scroll {
+	background-image: url(scroll_7.png);
+	width: 100%;
+	height: 2px;
+	dock-align: top;
+}
+
+.parameter_grid {
+	width: 100%;
+	height: 6.7mm;
+	dock-align: top;
+	background-color: #FFFFFF;
+}
+
+.parameter_grid TextView {
+	width: 50% auto;
+	height: 100%;
+	padding-top: 30%;
+	vertical-align: central;
+	margin-left: 2.7mm;
+	color: #FF7C4A;
+	dock-align: left;
+	font: 36% arial;
+}
+
+.parameter_grid img {
+	height: 1.9mm;
+	width: 1.3mm;
+	margin-top: 35%;
+	/*margin-left: 1mm;*/
+	margin-right: 2.4mm;
+	background-image: url(arrow.png);
+	dock-align: right;
+}
+
+.parameter_grid EditText {
+	width: 50%;
+	height: 100%;
+	color: #FF7C4A;
+	padding-top: 30%;
+	margin-left: 2.7mm;
+	dock-align: left;
+	font: 37% arial;
+	placeholder-color: #FF7C4A;
+}
+
+.parameter_grid hl {
+	width: 50%;
+	margin-left: 2.4mm;
+	dock-align: left;
+}
+
+.parameter_grid hl TextView {
+	width: 100%;
+	height: 100%;
+	padding-top: 30%;
+	color: #FF7C4A;
+	font: 36% arial;
+}
+
+.parameter_image {
+	height: 100%;
+	margin-right: 2.4mm;
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+	background-image: url(arrow.png);
+	dock-align: right;
+}
+
+.tick {
+	width: 2.1mm;
+	margin-left: 1.7mm;
+	margin-right: 0%;
+	margin-top: 35%;
+	background-image: url(tick.png);
+	dock-align: left;
+}
+
+.empty_tick {
+	width: 3.8mm;
+	height: 100%;
+	dock-align: left;
+}
+
+.child_tick {
+	width: 2.1mm;
+	margin-left: 6.5mm;
+	margin-top: 35%;
+	background-image: url(tick.png);
+	dock-align: left;
+}
+
+.child_empty_tick {
+	width: 8.6mm;
+	height: 100%;
+	dock-align: left;
+}
+
+.yes_TextView {
+	width: 25%;
+	height: 100%;
+	margin-left: 3.5%;
+	color: #FF7C4A;
+	dock-align: left;
+	font: 37% arial;
+}
+
+.yes_button {
+	width: 29.4%;
+	height: 50%;
+	margin-top: 25%;
+	margin-left: 5%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #FF7C4A;
+	border-radius: 5px;
+	color: #FF7C4A;
+	text-align: center;
+	font: 63% arial;
+}
+
+.value {
+	width: 35%;
+	height: 100%;
+	white-space: nowrap;
+	margin-right: 2.4mm;
+	font: 28% Arial;
+	color: #8e8e93;
+	dock-align: right;
+	text-align: right;
+}
+
+.action_and_value {
+	width: 26%;
+	height: 100%;
+	white-space: normal;
+	margin-right: 10%;
+	font: 28% Arial;
+	color: #8e8e93;
+	dock-align: right;
+	text-align: right;
+}
+
+.b_line {
+	width: 100%;
+	height: 2px;
+	dock-align: bottom;
+	background-color: #c8c7cc;
+}
+
+.bottom_btn {
+	width: 100%;
+	height: 6.7mm;
+	dock-align: bottom;
+	selected-color: #bacdce;
+	background-color: #fff;
+}
+
+.bottom_btn TextView {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding-top: 25%;
+	color: #FF7C4A;
+	font: 37% arial;
+}
+
+.bottom_btn line {
+	width: 100%;
+	height: 1px;
+	dock-align: bottom;
+	background-color: #c8c7cc;
+}
+
+.bottom_btn vl {
+	width: 50%;
+	height: 100%;
+	selected-color: #bacdce;
+}
+
+.bottom_btn vl TextView {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	color: #FF7C4A;
+	font: 37% arial;
+}
+
+.left_tv {
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	padding-top: 25%;
+	padding-left: 2.4mm;
+	color: #FF7C4A;
+	font: 37% arial;
+}
+
+.right_tv {
+	width: 100%;
+	height: 100%;
+	text-align: right;
+	padding-top: 25%;
+	padding-right: 2.4mm;
+	color: #FF7C4A;
+	font: 37% arial;
+}
+
+.memo_block {
+	height: 18mm;
+	selected-color: #bacdce;
+}
+
+.memo_block vl {
+	width: 98%;
+	height: 90%;
+	margin-top: 5%;
+	margin-left: 2.7mm;
+	padding-left: 0%;
+}
+
+.memo_block vl description_row {
+	height: 3.2mm;
+}
+
+.memo_block vl main_row {
+	height: 78%;
+	width: 100%;
+	margin-left: 0%;
+	font: 20% Arial;
+	white-space: normal;
+}
+
+.no_image{
+	background-color: #eeeeee;
+	height: 100%;
+	width: 45.7mm;
+	margin-top: 0.5mm;
+	margin-bottom: 2.3mm;
+	margin-left: 3mm;
+	margin-right: 3mm;
+}
+
+.no_image TextView {
+	height: 100%;
+	width: 25mm;
+	color: #8e8e93;
+	text-align: center;
+	horizontal-align: central;
+	padding-top: 0mm;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	white-space: normal;
+	font: 25% arial;
+}
+
+.no_image img {
+	height: 12mm;
+	width: 12mm;
+	background-image: url(no_image_big.png);
+	margin-top: 10%;
+	horizontal-align: center;
+}
+
+.no_single_image {
+	height: 25.6mm;
+	background-color: #ffffff;
+	width: 45.7mm;
+	margin-top: 0.5mm;
+	margin-bottom: 2.3mm;
+	horizontal-align: center;
+}
+
+
+/*-----------side menu-------------*/
+
+.menu {
+	padding-top: 2%;
+	background-color: #2E2F3C;
+	width: 43.4mm;
+}
+
+.menu line {
+	margin-left: 1.4mm;
+	background-color: #3A3B47;
+}
+
+.menu dl {
+	height: 6.9mm;
+	selected-color: #5D5D71;
+}
+
+.menu_text {
+	width: 30% auto;
+	height: 32%;
+	dock-align: right;
+	text-align: right;
+	vertical-align: central;
+	margin-top: 30%;
+	margin-right: 2mm;
+	margin-left: 0.5mm;
+	color: #c1c1c5;
+	font: 90% arial;
+}
+
+.menu dl hl {
+	margin-left: 2mm;
+	dock-align: left;
+}
+
+.menu dl hl img{
+	height: 65%;
+	vertical-align: central;
+}
+
+.menu dl hl TextView {
+	width: 100% auto;;
+	height: 40%;
+	margin-left: 1.4mm;
+	vertical-align: central;
+	color: #c1c1c5;
+	font: 90% arial;
+}
+
+.header {
+	background-color: #696A87;
+	margin-left: 0mm;
+}
+
+.btn_summary {
+	background-image: url(Menu_01.png);
+}
+
+.btn_visits {
+	background-image: url(Menu_02.png);
+}
+
+.btn_orders {
+	background-image: url(Menu_03.png);
+}
+
+.btn_returns {
+	background-image: url(Menu_11.png);
+}
+
+.btn_clients {
+	background-image: url(Menu_04.png);
+}
+
+.btn_kpi {
+	background-image: url(Menu_06.png);
+}
+
+.btn_sync {
+	background-image: url(Menu_08.png);
+}
+
+.btn_info {
+	background-image: url(Menu_09.png);
+}
+
+.btn_logout {
+	background-image: url(Menu_10.png);
+}
+
+.btn_todo {
+	background-image: url(Menu_12.png);
+}
+
+.no_items {
+	height: 5.5mm;
+	width: 100%;
+	margin-top: 2mm;
+	text-align: center;
+	font: 2.2mm Arial;
+	color: #000;
+
+}
+
+.clickable {
+	width: 60%;
+	dock-align: left;
+	margin-left: 0%;
+}
+
+.clickable TextView {
+	height: 100%;
+	width: 100%;
+	margin-left: 2.7mm;
+}

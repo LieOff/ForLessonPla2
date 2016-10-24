@@ -1,0 +1,393 @@
+/*.menu_text {
+	width: 100%;
+	height: 32%;
+	margin-left: 0.5mm;
+	vertical-align: central;
+	dock-align: left;
+	color: #ffffff;
+	font: 90% arial;
+	background-color: #11aaaa;
+}*/
+
+
+sv {
+	background-color: #7fc8fd;
+}
+
+.lead_root {
+	height: 100%;
+	width: 100%;
+	background-color: #f8f8f8;
+}
+
+.lead_root vl {
+	border-color: #b7b7b7;
+	border-width: 2px;
+	border-style: solid;
+}
+
+.lead_header {
+	height: 30%;
+	width: 100%;
+	background-image: url(bg.png);
+
+}
+
+.lead_header img {
+	width: 450px;
+	height: 88px;
+	margin-top: 30%;
+	background-image: url(logo.png);
+	horizontal-align: center;
+}
+
+.lead {
+	height: 100%;
+	width: 45mm;
+	/*margin-top: 10%;*/
+
+	horizontal-align: center;
+	dock-align: top;
+}
+
+.input {
+	/*background-color: #336699;*/
+	vertical-align: center;
+	height: 31mm;
+}
+
+.lead_fieldcontainer {
+	dock-align: top;
+	width: 45mm;
+	height: 8mm;
+	margin-top: 1mm;
+	border-color: #FF7C4A;
+	border-radius: 16px;
+	border-width: 2px;
+	border-style: solid;
+	horizontal-align: center;
+}
+
+.lead_fieldcontainer img {
+	width: 45px;
+	height: 45px;
+	margin-left: 16px;
+	margin-right: 16px;
+	vertical-align: center;
+}
+
+.lead Button {
+	dock-align: top;
+	width: 45mm;
+	height: 8mm;
+	margin-top: 1mm;
+	border-radius: 16px;
+	border-width: 3px;
+	border-style: solid;
+	font: 40% arial;
+	color: #ffffff;
+	horizontal-align: center;
+}
+
+.lead hl vl TextView {
+	height: 2.2mm;
+	width: 100%;
+	font: 90% arial;
+	color: #b7b7b7;
+	margin-top: 0.6mm;
+	margin-bottom: 0.8mm;
+	text-align: center;
+	horizontal-align: center;
+}
+
+.lead_field {
+	height: 60%;
+	width: 80%;
+	font: 60% Arial;
+	color: #FF7C4A;
+	vertical-align: center;
+	placeholder-color: #b7b7b7;
+}
+
+
+.lead_order {
+	dock-align: bottom;
+	width: 100%;
+	height: 8mm;
+}
+
+.lead_contacts {
+	width: 100%;
+	height: 6mm;
+}
+
+.lead_contacts vl {
+	dock-align: left;
+}
+
+.lead_contacts Button {
+	height: 2.2mm;
+	width: 40%;
+	font: 85% arial;
+	color: #b7b7b7;
+	margin-top: 0.6mm;
+	margin-bottom: 0.8mm;
+	text-align: center;
+	horizontal-align: center;
+}
+
+.contact_mail {
+	margin-top: 0px;
+	dock-align: left;
+}
+
+.contact_phone {
+	margin-top: 0px;
+	dock-align: right;
+}
+
+.contact_placeholder {
+	width: 1mm;
+	height: 2.2mm;
+	font: 80% arial;
+	color: #b7b7b7;
+	margin-top: 0px;
+	horizontal-align: center;
+}
+
+.lead_order TextView {
+	height: 2.2mm;
+	width: 100%;
+	font: 90% arial;
+	color: #cccccc;
+	margin-top: 0.6mm;
+	margin-bottom: 0.8mm;
+	text-align: center;
+	horizontal-align: center;
+}
+
+
+.name_icon {
+	background-image: url(name_icon.png);
+}
+
+.phone_icon {
+	background-image: url(phone_icon.png);
+}
+
+.register_button {
+	dock-align: top;
+	width: 45mm;
+	height: 8mm;
+	margin-top: 1mm;
+	border-radius: 16px;
+	border-width: 3px;
+	border-style: solid;
+	font: 40% arial;
+	color: #ffffff;
+	background-color: #FF7C4A;
+}
+
+.register_button_blocked {
+	dock-align: top;
+	width: 45mm;
+	height: 8mm;
+	margin-top: 1mm;
+	border-radius: 16px;
+	border-width: 3px;
+	border-style: solid;
+	font: 40% arial;
+	color: #b2b2b7;
+}
+
+.enter_button_blocked {
+	color: #b2b2b7;
+	dock-align: bottom;
+	margin-bottom: 5%;
+}
+
+.edittext_blocked {
+	height: 60%;
+	width: 80%;
+	font: 60% Arial;
+	color: #FF7C4A;
+	vertical-align: center;
+	placeholder-color: #b7b7b7;
+	color: #b2b2b7;
+}
+
+.enter_button {
+	background-color: #b7b7b7;
+	dock-align: bottom;
+	margin-bottom: 5%;
+}
+
+.grid {
+	height: 45%;
+	width: auto;
+	background-color: #f8f8f8;
+}
+
+.grid img {
+	dock-align: right;
+}
+
+.grid vl main_row {
+	font: 95% Arial-BoldMT;
+	color: #FF7C4A;
+	white-space: nowrap;
+}
+
+.grid vl description_row {
+	height: 23%;
+	font: 80% arial;
+	color: #8E8E93;
+	margin-top: 10%;
+	margin-bottom: 0%;
+}
+
+.blue {
+	width: 100%;
+	height: 100%;
+	padding-top: 2%;
+	background-color: #4a4c60;
+}
+
+.blue dl {
+	height: 35%;
+	width: 96%;
+	margin-top: 2%;
+	margin-left: 2%;
+	background-color: #f8f8f8;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #3384b8;
+	border-radius: 10px;
+}
+
+.blue dl left {
+	width: 60%;
+	height: 100%;
+	margin-left: 2%;
+	dock-align: left;
+}
+
+.blue dl right {
+	width: 36%;
+	height: 100%;
+	margin-right: 2%;
+	dock-align: right;
+}
+
+.blue dl right grid vl description_row {
+	margin-top: 0%;
+}
+
+.blue dl grid {
+	margin-left: 11%;
+	margin-top: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+}
+
+.blue dl line {
+	margin-left: 11%;
+	margin-right: 2%;
+}
+
+.short_panel {
+	height: 17%;
+}
+
+.short_panel grid {
+	height: 92%;
+	margin-top: 4%;
+	margin-bottom: 4%;
+}
+
+.right line {
+	margin-top: 5%;
+}
+
+.descr {
+	text-align: left;
+	font: 80% arial;
+}
+
+.caption_big {
+	margin-top: 5%;
+	width: 100%;
+	height: 30%;
+}
+
+.caption_big TextView {
+	height: 100%;
+	width: 33%;
+	margin-left: 2%;
+	text-align: left;
+	font: 95% Arial-BoldMT;
+	color: #FF7C4A;
+	dock-align: left;
+}
+
+.caption_big descr {
+	height: 35%;
+	width: 80%;
+	margin-top: 15%;
+	margin-bottom: -15%;
+	text-align: left;
+	font: 80% arial;
+	dock-align: top;
+}
+
+.simple {
+	width: 80%;
+	height: 70%;
+	margin-left: 5%;
+}
+
+.simple TextView {
+	height: 15%;
+	width: 100%;
+	color: #495052;
+}
+
+.simple hl {
+	height: 15%;
+	width: 100%;
+}
+
+.simple hl TextView {
+	width: 100%;
+	height: 100%;
+	font: 82% Arial;
+	color: #000;
+}
+
+.simple hl descr {
+	width: 33%;
+	font: 80% Arial;
+	color: #495052;
+}
+
+.simple hl mark {
+	width: 20%;
+	margin-left: 0%;
+	margin-right: 3%;
+	text-align: center;
+	color: #d12d2d;
+	background-color: #fab9b9;
+	border-style: solid;
+	border-width: 0px;
+	border-radius: 5px;
+}
+
+.docs {
+	dock-align: right;
+}
+
+.navy {
+	width: 100%;
+	height: 1px;
+	background-color: #4a4c60;
+}

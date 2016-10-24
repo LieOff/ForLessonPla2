@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<s:View xmlns:s="BitMobile.ValueStack">
+
+	<html>
+
+		<head>
+			<meta charset="utf-8" />
+			<title>
+				<s:property Value="$title" />
+			</title>
+			<link type="text/css" rel="stylesheet" href="../css/default.css" />
+		</head>
+
+		<body>
+			<img src="../image/pict.jpg" width="30%" />
+			<h1>
+				<s:property Value="$title" />
+			</h1>
+
+			<form action="submitEntry" method="post">
+				<p>
+					<b>Enter your message:</b>
+				</p>
+				<p>
+					<textarea rows="10" cols="45" name="message">
+						<s:Property Value="$message" />
+					</textarea>
+				</p>
+				<p>
+					<input type="submit" />
+				</p>
+			</form>
+
+			<table width="70%">
+				<s:Iterator Id="entry" Value="$entries">
+					<tr>
+						<td width="15%">
+							<s:Property Value="$entry.Date" />
+						</td>
+						<td width="15%">
+							<s:Property Value="$entry.UserName" />
+						</td>
+						<td width="70%">
+							<s:Property Value="$entry.Description" />
+						</td>
+					</tr>
+				</s:Iterator>
+			</table>
+		</body>
+
+	</html>
+
+</s:View>

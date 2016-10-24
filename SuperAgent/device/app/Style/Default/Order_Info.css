@@ -1,0 +1,20 @@
+.parameter_grid TextView {
+	width: 40%;
+}
+
+.main_row{
+	color: #FF7C4A;
+}
+
+.value{
+	placeholder-color: #8e8e93;
+}
+
+.main_row_price_list {
+	color: #FF7C4A;
+	width: 100%;
+	height: 40%;
+	white-space: nowrap;
+	placeholder-color: #FF7C4A;
+	font: 42% Arial;
+}

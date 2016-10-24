@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Outlet.css">
+
+	<s:Push Id="outlet" Value="$param1"></s:Push>
+
+	<c:DockLayout>
+
+		<c:DockLayout CssClass="top_navigator">
+			<c:HorizontalLayout>
+				<c:TextView Text="#newVisit#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+
+		<c:HorizontalLine />
+
+		<c:HorizontalLayout Id="btnCancel" CssClass="bottom_btn">
+			<c:VerticalLayout OnEvent="Back" OnClickAction="$DoBack()">
+				<c:TextView Text="#back#" CssClass="left_tv"></c:TextView>
+			</c:VerticalLayout>
+			<c:VerticalLayout Id="btnAdd" OnEvent="Forward" OnClickAction="$CreatePlan($outlet, null, null)">
+				<c:TextView Text="#add#" CssClass="right_tv"></c:TextView>
+			</c:VerticalLayout>
+		</c:HorizontalLayout>
+		<c:HorizontalLine CssClass="b_line" />
+
+		<c:ScrollView Id="grScrollView">
+
+			<c:HorizontalLayout CssClass="margin_top" />
+			<c:HorizontalLine />
+
+			<s:Iterator Id="plan" Value="$GetPlans($outlet)" Status="statusCount">
+
+				<c:DockLayout CssClass="parameter_grid" OnClickAction="$CreatePlan($outlet, $plan.Id, $plan.PlanDate)">
+					<c:TextView Text="#visitdate#"></c:TextView>
+					<c:TextView Text="$FormatDate($plan.PlanDate)" CssClass="value"></c:TextView>
+				</c:DockLayout>
+				<c:HorizontalLine />
+
+			</s:Iterator>
+
+		</c:ScrollView>
+
+	</c:DockLayout>
+
+</c:Screen>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Receivables.css">
+
+	<s:Push Id="visit" Value="$workflow.visit" />
+	<s:Push Id="workflow.encashment" Value="$CreateEncashmentIfNotExist($workflow.visit)"></s:Push>
+	<s:Push Id="receivables" Value="$GetReceivables($visit.Outlet)"></s:Push>
+	<s:Push Id="t" Value="$GetHeader($workflow.outlet)"/>
+
+	<c:VerticalLayout>
+
+		<c:DockLayout CssClass="top_navigator">
+			<c:DockLayout Id="btnBack" CssClass="btn_back" OnEvent="Back" OnClickAction="$DoBack()">
+				<c:Image />
+				<c:TextView Text="#back#" />
+			</c:DockLayout>
+			<c:DockLayout CssClass="btn_forward" OnEvent="Forward" OnClickAction="$SaveAndForward($workflow.encashment)" SubmitScope="encAmount">
+				<c:TextView Id="btnForward" Text="#forward#" />
+			</c:DockLayout>
+			<c:HorizontalLayout>
+				<c:TextView Text="#encashment#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+
+		<c:Image CssClass="6_scroll"></c:Image>
+		<c:HorizontalLine />
+
+
+		<c:ScrollView Id="grScrollView">
+
+			<c:HorizontalLayout CssClass="caption_grid">
+				<c:TextView Text="#receivableAmount#:"></c:TextView>
+			</c:HorizontalLayout>
+
+			<c:HorizontalLayout CssClass="total_grid">
+				<c:VerticalLayout>
+					<c:TextView Text="#total_receivable#" CssClass="t_row"></c:TextView>
+					<c:TextView Text="#overdue#" CssClass="t_row"></c:TextView>
+				</c:VerticalLayout>
+				<c:VerticalLayout>
+					<c:TextView Text="@amount"></c:TextView>
+					<c:TextView Text="@overdueAmount" CssClass="overdue_text"></c:TextView>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+
+			<c:HorizontalLayout CssClass="grid">
+				<c:VerticalLayout OnClickAction="$FocusOnEditText(encAmount, 1)">
+					<c:DockLayout>
+						<c:TextView Text="#encashmentAmount#:"></c:TextView>
+						<c:Button Text="#spread#" OnClickAction="$SpreadEncasmentAndRefresh($workflow.encashment, $visit.Outlet, $receivables)" SubmitScope="encAmount"></c:Button>
+					</c:DockLayout>
+					<c:EditText Id="encAmount" Text="$FormatSum(null, $workflow.encashment.EncashmentAmount)" CssClass="main_row" Keyboard="numeric" OnChange="$CheckUserInput()" Placeholder="—" OnLostFocus="$SaveSum()" Mask="#enc_amount_regexp#"/>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<c:HorizontalLayout CssClass="end_of_block" />
+
+			<c:HorizontalLayout CssClass="caption_grid">
+				<c:TextView Text="#byDocs#:"></c:TextView>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<s:Iterator Id="receivableDoc" Value="$receivables" Status="statusCount">
+				<s:Push Id="index" Value="$statusCount.Index"></s:Push>
+
+				<c:HorizontalLayout CssClass="grid" OnClickAction="$FocusOnEditText(control{$index}, 1)">
+					<c:VerticalLayout>
+						<s:If Test="$receivableDoc.Overdue">
+							<c:TextView Text="{$receivableDoc.DocumentName}  #overdueSum#" CssClass="description_row"></c:TextView>
+						</s:If>
+						<s:Else>
+							<c:TextView Text="{$receivableDoc.DocumentName}" CssClass="description_row"></c:TextView>
+						</s:Else>
+						<c:DockLayout CssClass="parameter_grid">
+							<s:If Test="$receivableDoc.Overdue">
+								<c:TextView Text="#debt#: {$FormatValue($receivableDoc.DocumentSum)}" CssClass="r_row"></c:TextView>
+							</s:If>
+							<s:Else>
+								<c:TextView Text="#debt#: {$FormatValue($receivableDoc.DocumentSum)}" CssClass="b_row"></c:TextView>
+							</s:Else>
+							<c:EditText Id="control{$index}" Text="$FormatSum(null, $receivableDoc.EncSum)" Keyboard="numeric" Placeholder="—" OnChange="$RefreshAmount($workflow.encashment, $receivableDoc.EncItem, $receivableDoc.DocumentName)" OnLostFocus="$Workflow.DoRefresh()"></c:EditText>
+						</c:DockLayout>
+					</c:VerticalLayout>
+				</c:HorizontalLayout>
+				<c:HorizontalLine />
+
+			</s:Iterator>
+
+			<c:HorizontalLayout CssClass="end_of_block" />
+
+			<c:HorizontalLayout CssClass="caption_grid">
+				<c:TextView Text="#mainInfo#:"></c:TextView>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<c:HorizontalLayout CssClass="grid" OnClickAction="$FocusOnEditText(doc_number, 1)">
+				<c:VerticalLayout>
+					<c:TextView Text="#docNumber#" CssClass="description_row"></c:TextView>
+					<c:MemoEdit Value="$workflow.encashment.DocNumber" Id="doc_number" Placeholder="—"></c:MemoEdit>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<c:HorizontalLayout CssClass="grid" OnClickAction="$FocusOnEditText(name_surname, 1)">
+				<c:VerticalLayout>
+					<c:TextView Text="#nameSurname#" CssClass="description_row"></c:TextView>
+					<c:MemoEdit Value="$workflow.encashment.NameSurname" Id="name_surname" Placeholder="—"></c:MemoEdit>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<c:HorizontalLayout CssClass="grid" OnClickAction="$FocusOnEditText(commentary, 1)">
+				<c:VerticalLayout>
+					<c:TextView Text="#commentary#" CssClass="description_row"></c:TextView>
+					<c:MemoEdit Value="$workflow.encashment.Commentary" Id="commentary" Placeholder="—"></c:MemoEdit>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<c:HorizontalLayout CssClass="end_of_block" />
+
+		</c:ScrollView>
+
+	</c:VerticalLayout>
+
+</c:Screen>

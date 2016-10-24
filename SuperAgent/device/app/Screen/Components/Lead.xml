@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c:Component xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack">
+
+	<c:VerticalLayout CssClass="lead_root">
+
+		<c:VerticalLayout CssClass="lead_header">
+			<c:Image />
+		</c:VerticalLayout>
+
+		<c:VerticalLayout>
+
+			<c:DockLayout CssClass="lead">
+
+				<c:VerticalLayout CssClass="lead_order">
+					<c:TextView Text="#leadOrderDemo#"></c:TextView>
+
+					<c:DockLayout CssClass="lead_contacts">
+						<c:Button Text="#leadMail#" CssClass="contact_mail" OnClickAction="$SendMail()"></c:Button>
+
+						<c:Button Text="#leadPhone#" CssClass="contact_phone" OnClickAction="$Call()"></c:Button>
+
+						<c:VerticalLayout>
+							<c:TextView Text="|" CssClass="contact_placeholder"></c:TextView>
+						</c:VerticalLayout>
+					</c:DockLayout>
+
+				</c:VerticalLayout>
+
+				<c:Button Id="btnEnterUnregistered" OnClickAction="$EnterUnregistered()" CssClass="enter_button" Text="#enterUnregistered#"></c:Button>
+
+				<c:HorizontalLayout>
+
+					<c:VerticalLayout CssClass="input">
+
+						<c:HorizontalLayout CssClass="lead_fieldcontainer">
+							<c:Image CssClass="name_icon" />
+							<c:EditText Id="FullName" Placeholder="#name#" CssClass="lead_field" OnChange="$crutch()"></c:EditText>
+						</c:HorizontalLayout>
+
+						<c:HorizontalLayout CssClass="lead_fieldcontainer">
+							<c:Image CssClass="phone_icon" />
+							<c:EditText Keyboard="Phone" Id="Phone" Placeholder="#phone#" CssClass="lead_field" OnChange="$crutch()"></c:EditText>
+						</c:HorizontalLayout>
+
+						<c:Button Id="btnRegister" OnClickAction="$Register()" Text="#register#" CssClass="register_button"></c:Button>
+						<c:TextView Text="#leadGetPersonalDemoAccess#"></c:TextView>
+
+					</c:VerticalLayout>
+
+				</c:HorizontalLayout>
+
+			</c:DockLayout>
+
+		</c:VerticalLayout>
+
+	</c:VerticalLayout>
+
+</c:Component>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" xmlns:d="DefaultScope">
+
+	<s:Push Id="visitPlans" Value="$param1"></s:Push>
+
+	<c:VerticalLayout>
+		<c:DockLayout CssClass="top_navigator">
+			<c:DockLayout CssClass="btn_back" OnClickAction="$Workflow.DoBack()">
+				<c:Image />
+				<c:TextView Text="#visits#" />
+			</c:DockLayout>
+			<c:DockLayout CssClass="btn_forward" OnEvent="Forward" OnClickAction="$CheckIfEmptyAndForward($workflow.order, $workflow.name)">
+				<c:TextView Id="btnForward" Text="#forward#" />
+			</c:DockLayout>
+			<c:HorizontalLayout>
+				<c:TextView Text="#map#" />
+			</c:HorizontalLayout>			
+		</c:DockLayout>
+
+		<s:If Test="$Facade.HasCoordinates($visitPlans)">
+			<c:WebMapGoogle Id="map" />
+		</s:If>
+		<s:Else>
+			<c:ScrollView>
+				<c:HorizontalLayout CssClass="grid">
+					<c:VerticalLayout>
+						<c:TextView Text="#no_visitPlans#" CssClass="main_row"></c:TextView>
+					</c:VerticalLayout>
+				</c:HorizontalLayout>
+			</c:ScrollView>
+		</s:Else>
+
+
+	</c:VerticalLayout>
+
+</c:Screen>

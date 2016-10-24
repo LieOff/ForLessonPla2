@@ -1,0 +1,362 @@
+﻿about		ПОДРОБНЕЕ О ПРИЛОЖЕНИИ
+accountsReceivables	дебиторская задолженность
+Active	Активная
+add			Добавить
+addFromGallery	Выбрать из галереи
+additionally	ДОПОЛНИТЕЛЬНО
+address		Адрес
+agreement		Используя приложение вы принимаете условия лицензионного соглашения.
+allStocks	Все склады
+alreadyOrdered	уже в заказе
+alreadyReturned	уже в возврате
+amount		Итого
+amountOfOrdersForToday	сумма заказов на сегодня
+answer		Ответ
+apply		Применить
+at	в
+available	Доступность
+autoFillOrder	Заполнить заказ автоматически?
+back		Назад
+baseUnit	Баз. единица изм.
+bitMobile	БИТ.МОБАЙЛ
+bitmobileDesc	БИТ.Мобайл является подразделением компании Первый БИТ. Мы занимаемся разработкой мобильных решений для бизнеса.
+brand	Бренд
+brands	Бренды
+byDocs		ПО ДОКУМЕНТАМ
+cancel		Отмена
+cancel			Отменить
+caps_summary	СВОДНАЯ ИНФОРМАЦИЯ
+choose_action	Выберите действие:
+clear_coord		Удалить
+clearFilter		Очистить фильтр?
+clearValue		Очистить значение
+clickToInsert	Нажмите для ввода даты
+client		Клиент
+clients		Клиенты
+Closed	Закрытая
+commentary	Комментарий
+completedVisits		ВЫПОЛНЕННЫЕ ВИЗИТЫ
+contact		Контакт
+contactName		Контактное лицо
+contacts	Контакты
+contractor		Контрагент
+contractors		Контрагенты
+coordinates	Координаты
+coordinatesAreSet	Координаты установлены
+copy		Скопировать
+couldnt_be_cleaned	Поле не может быть очищено
+countPrice	Пересчитать цену
+currency	₽
+current		Текущие
+date		Дата
+debt	Долг
+delete	Удалить
+deleteImage		Удалить изображение?
+deleteItem	Удалить эту строку
+deliveryDate	Дата доставки
+description	Наименование
+description	Наименование
+details		Реквизиты
+developer	РАЗРАБОТЧИК РЕШЕНИЯ
+discard		Сбросить
+discount	Скидка, %
+distribution	Дистрибуция
+distributor	Дистрибьютор
+distributor	Дистрибьютор
+docNumber	Номер документа
+document	Документ
+documentSum	Сумма документа
+done		Заполнен
+edit		Редактирование
+editChange		Изменить
+editSKU			Изменить
+email		Электронная почта
+email_regexp	^(([а-яА-ЯёЁa-zA-Z0-9_-]+\.)*[а-яА-ЯёЁa-zA-Z0-9_-]+@[а-яА-ЯёЁa-zA-Z0-9_-]+(\.[а-яА-ЯёЁa-zA-Z0-9_-]+)*\.[а-яА-ЯёЁa-zA-Z]{2,6})?$
+empty_field	Поле не может быть очищено
+emptyContactOwner	Поле Принадлежность контакта не заполнено
+emptyList	Список пуст
+enc_amount_regexp	^(\d{1,8}((\.|,)\d{1,2})?)?$
+encashment	Инкассация
+encashmentAmount	Сумма инкассации
+encashmentSum	Сумма инкассации
+end	Завершить
+endPlanTime		Плановая дата завершения
+enterDateTime	Введите дату и время
+enterUnregistered	Войти без регистрации
+error	Ошибка
+errorMessage	Сообщить об ошибке
+execute		Выполнить
+executed		выполнена
+executedtask	ВЫПОЛНЕННЫЕ СЕГОДНЯ
+executionDate	Фактическое выполнение
+facing		Фейсинг
+false		Нет
+features	ХАРАКТЕРИСТИКИ
+fillInVisitReason	Причина визита должна быть заполнена
+fillNoOrderReason	 Причина отсутствия заказа должна быть заполнена.
+filter	Фильтр
+firstBIT	Первый БИТ — эффективные решения для вашего бизнеса. Лидер на рынке автоматизации 1С с 17 летним опытом!
+forward		Далее
+further	еще
+go_back	Вернуться
+groups	Группы
+hideImage	Скрыть фото
+icons		При создании приложения использованы иконки Icons8. Сайт разработчика icons8.com
+idea		Предложить идею
+imageNotAvailable	В данный момент изображение недоступно
+impossibleToCreateVisit		Невозможно создать плановый визит пока не записаны координаты. Повторить попытку получить координаты?
+impossibleToDelete	Невозможно удалить, заказ уже передан в базу
+impossibleToEdit	Невозможно редактировать, заказ уже передан в базу
+incompletedVisits	НЕВЫПОЛНЕННЫЕ ВИЗИТЫ
+incorrect		Некорректное значение
+info		О приложении
+information	Информация
+inn			ИНН
+inn_regexp		^((\d{10})|(\d{12})|)?$
+insert_answer	ВВЕДИТЕ ЗНАЧЕНИЕ..
+insert_text	Введите текст..
+IP				ИП
+isntSelected	Не выбран
+kpi			KPI
+kpp			КПП
+kpp_regexp		^(\d{9}|)?$
+leadFail	Подключитесь к сети или войдите без регистрации
+lastSync	Последняя синхронизация
+leadGetPersonalDemoAccess	и получите персональный демо-доступ
+leadThanks	Благодарим Вас за предоставленные данные! Наши специалисты свяжутся с Вами в ближайшее время!
+leadFillDataPlease	Пожалуйста, заполните данные
+leadOrderDemo	Закажите подробную демонстрацию
+leadPhone	+7-812-320-65-66
+leadMail	mobilespb@1cbit.ru
+legal_address	Юридический адрес
+legal_name	Юридическое лицо
+lessStart	Дата завершения не может быть меньше даты начала
+lessToday	Дата начала не может быть меньше текущей
+list	Список
+location	Установить координаты торговой точки
+locationSetFailed	Не удалось получить координаты.
+logo		logoRu
+logout			Выход
+logoutConfirm	Выйти
+logoutQuery		При выходе будут удалены все данные
+main		ОСНОВНОЕ
+mainData	ОСНОВНЫЕ ДАННЫЕ
+mainInfo	ОСНОВНЫЕ СВЕДЕНИЯ
+makeSnapshot	Сделать снимок
+map			Карта
+markUp		Наценка, %
+markUp		Наценка
+maximumAmount	Лимит
+messageNulls	Все поля на экране должны быть заполнены.
+name	Имя
+nameSurname	ФИО
+new			Новое
+newClient	Новый клиент
+newContact	Новый контакт
+newOrder	Создать новый заказ
+newOutlet	Создать новую торговую точку
+newPrice	Новая цена
+newTask			Новая задача
+newTasks	НЕВЫПОЛНЕННЫЕ
+newVisit	Новый визит
+nextVisitDate	Дата следующего визита
+NKO				НКО
+NO		Нет
+no_contacts	НЕТ КОНТАКТОВ
+no_questions	Вопросов нет
+no_questions_list	НЕТ ВОПРОСОВ
+no_orders		НЕТ ЗАКАЗОВ
+no_returns		НЕТ ВОЗВРАТОВ
+no_tasks	Задач нет
+no_visitPlans		Нет визитов для отображения
+noContractors	Нет контрагентов
+noContractorsMessage	У данной торговой точки нет контрагентов
+noCoordinates	Координаты не установлены
+noDescriGiven	(описание отсутствует)
+noImage	Изображение не найдено
+NoLimit		Не ограничен
+noLogout		Не выполнена синхронизация
+nonregular	Единоразовые
+noNumber	Нет номера
+noOrder			Поле "Причина отсутствия заказа" должно быть заполнено
+noPriceLists	Нет прайс-листов
+noSnapshot	Нет фотоснимка
+noSuccess		Произошла ошибка во время отправки. Данные не отправлены
+notAvailable	Снимок прикреплен. Просмотр будет доступен после обработки сервером.
+notAvailableShort	Н/Д
+noteAsExecuted	Отметить как выполненную
+noteAsNew	Отметить как невыполненную
+notLimited		бессрочная
+OAO				OAO
+of	из
+Ok		Ок
+OOO				OOO
+OP				ОП
+order		Заказ
+OrderDiscount	Скидка на заказ, %
+orderDiscountReset	Скидки пересчитаны
+orderHistory	ИСТОРИЯ ЗАКАЗОВ
+orderInfo	ИНФОРМАЦИЯ О ЗАКАЗЕ
+orderInfoSmall	Информация о заказе
+OrderMarkUp	Наценка на заказ, %
+orderParameters	ПАРАМЕТРЫ ЗАКАЗА:
+orders		Заказы
+OrderskuWillBeDeleted	Часть товаров из заказа будет удалена. Продолжить?
+OrderSKUWillRevised	Заказ пересчитан
+orderSum	Сумма заказа
+others		Другие приложения
+outlet		Торговая точка
+outlet_class	Класс торговой точки
+outlet_description	Наименование торговой точки
+outlet_short	ТТ
+outlet_territory	Территория
+outlet_type	Тип торговой точки
+outletClass	Класс торговой точки
+outletContacts	КОНТАКТЫ ТОРГ. ТОЧКИ
+outlets		Магазины
+outletSnapshots	Фотографии торговой точки
+outletType	Тип торговой точки
+outOfStock	Наличие на складе
+overdue		Просрочено (руб.):
+overdueSum	[просрочено]
+owner			Принадлежность контакта
+ownership		Тип собственности
+packUnit	Ед. упаковки
+parameter	Параметр
+parameters	Параметры
+partner			Партнер
+partnerContacts	КОНТАКТЫ ПАРТНЕРА
+password	Пароль
+pcs			шт.
+phone		Телефон
+phone_regexp	^(((8|\+7)[\- ]?)?(\(?\d{3,4}\)?[\- ]?)?[\d\- ]{5,10})?$
+plandate	Плановый срок
+planned	плановых
+planVisit	Плановые
+position		Должность
+Potential	Потенциальная
+price		Цена
+price		Цена
+price2		Цена:
+priceList	Прайс-лист
+programmingCollectionForToday	сумма инкассации за сегодня
+quantity	Количество
+questAnswers	Ответов в анкете
+questions	Вопросы
+ready		Готово
+reasonForEmptyOrder	Причина отсутствия заказа
+receivable	Задолженность
+receivableAmount	СУММА ЗАДОЛЖЕННОСТИ
+receivables	Задолженность
+recommended		рекоменд.
+refresh		Обновить
+refreshScreen	Пересчитать заказ
+register	Зарегистрируйтесь
+regular		Регулярные
+repeat		Повторить
+requiredFieldsLeft	Обязательных полей осталось:
+requiredLeft	Обязательных вопросов осталось:
+reshot			Переснять
+result		Результат
+retrieve	Вернуть
+return			Возврат
+ReturnDiscount	Скидка на возврат, %
+returnHistory	ИСТОРИЯ ВОЗВРАТОВ
+returnInfo		ИНФОРМАЦИЯ О ВОЗВРАТЕ
+returnInfoSmall	Информация о возврате
+ReturnMarkUp	Наценка на возврат, %
+returnParameters	ПАРАМЕТРЫ ВОЗВРАТА:
+returns			Возвраты
+ReturnskuWillBeDeleted	Часть товаров из возврата будет удалена. Продолжить?
+ReturnSKUWillRevised	Возврат пересчитан
+returnSum		Сумма возврата
+save		Сохранить
+saveChanges	Сохранить изменения?
+schedule	Расписание
+scheduled	запланировано
+search		Поиск
+select_answer	ВЫБЕРИТЕ ЗНАЧЕНИЕ..
+select_answer_low	Выберите значение..
+selectOutlet	Выберите торговую точку
+selectOwner		Принадлежность контакта не выбрана
+selectUnit	Выберите единицу измерения:
+send			Отправить логи
+sending			Отправка..
+set			Установить
+setCoordinates	Установить координаты по текущему расположению?
+setCoords	Установить координаты
+setDate			Установить дату
+settings	Настройки
+setVisitCoordinates		Повторить попытку установить координаты?
+show			Просмотреть
+showImage	Показать фото
+showOnMap	Показать на карте
+sku			Номенклатура
+skuAdd			Добавление номенклатуры
+skuDetail		Подробно
+skuInOrder	ТОВАРЫ В ЗАКАЗЕ
+skuInReturn		ВОЗВРАЩАЕМЫЕ ТОВАРЫ
+skuList			СПИСОК ТОВАРОВ
+snapshot	Фотоснимок
+snapshot			Фотография
+snapshotAttached	Снимок прикреплен
+spread		Распределить
+spreadOnDocuments	Распределить на документы
+startPlanTime	Плановая дата начала
+startTime	Время начала
+status	Статус
+stock		Остатки
+stock		Остатки
+stockPlace	Склад
+success			Данные успешно отправлены
+sum			Сумма
+sumDiscount	Скидка, руб.
+sumMarkUp	Наценка, руб.
+summary		Сводная информация
+superDescription	СуперАгент — мобильное решение для сбора заказов, анкетирования и мерчандайзинга, контроля работы сотрудников.
+support		Тех.поддержка
+sync		Синхронизация
+Synchronization_has_not_been_performed	Синхронизация не была выполнена
+synchronizationData	СИНХРОНИЗАЦИЯ ДАННЫХ
+synchronizationPhoto	СИНХРОНИЗАЦИЯ ФОТОГРАФИЙ
+synchronize	Синхронизировать
+syncPhoto	Обмен фото
+target		Цель
+targets		Цели
+task		Задача
+tasks		Задачи
+TextMes	  Текст
+todo		Задачи
+todoDone	Задач выполнено
+total_receivable	Общая сумма (руб.):
+totalamount	Итого
+true		Да
+TSJ				ТСЖ
+turnaroundTime	Срок выполнения
+typeanswer	Введите значения..
+unit		Единица изм.
+unknown	Нет данных
+unplanned	Внеплановые
+untill			до
+username	Имя пользователя
+valueList	Список значений
+version		Версия
+visit		Визит
+visit_end_question	После завершения визита редактирование недоступно
+visitdate		Дата визита
+visitReason	Причина визита
+visitReasonMessage		Поле "Причина визита" должно быть заполнено
+visits		Визиты
+visitsKPI	Выполнение плановых визитов
+visitTotal	Итоги визита
+vpPerformed	выполнено
+vpUnplanned	внеплановых
+vpVisits	визитов
+web_site	Веб-сайт
+webSite		Сайт разработчика
+YES		Да
+ZAO				ЗАО
+OutWhatEver		Последняя синхронизация не была выполнена. При выходе все данные будут потеряны! Выйти?
+today		Сегодня
+agentLogo		super_agent
+TooMoreLetter		Длина текста превышает допустимое значение.

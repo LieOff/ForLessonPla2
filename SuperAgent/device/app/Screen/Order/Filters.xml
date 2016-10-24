@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Filter.css">
+
+	<s:Push Id="screenContext" Value="$param1"></s:Push>
+	<s:Push Id="screenFilter" Value="$SetFilter()"></s:Push>
+	<s:Push Id="thisDoc" Value="$GetCurrentDoc()"></s:Push>
+
+	<c:DockLayout Id="DLayout">
+		<c:DockLayout CssClass="top_navigator">
+			<c:Button Id="btnBack" CssClass="btn_back" />
+			<c:Button Id="btnForward" CssClass="btn_forward" />
+			<c:HorizontalLayout>
+				<c:TextView Text="#filter#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+
+		<c:HorizontalLayout CssClass="bottom_btn">
+			<c:VerticalLayout OnEvent="Back" OnClickAction="$AskAndBack()">
+				<c:TextView Text="#discard#" CssClass="left_tv"></c:TextView>
+			</c:VerticalLayout>
+			<c:VerticalLayout OnEvent="Forward" OnClickAction="$CheckFilterAndForward()">
+				<c:TextView Text="#apply#" CssClass="right_tv"></c:TextView>
+			</c:VerticalLayout>
+		</c:HorizontalLayout>
+		<c:HorizontalLine CssClass="b_line" />
+
+		<c:VerticalLayout CssClass="aligner">
+			<c:HorizontalLayout CssClass="small_grid">
+				<s:Push Id="groupFilter" Value="$GetLeftFilterStyle(group)"></s:Push>
+				<s:Push Id="brandFilter" Value="$GetRightFilterStyle(brand)"></s:Push>
+				<c:HorizontalLayout CssClass="$groupFilter">
+					<c:HorizontalLayout CssClass="select_zone" OnClickAction="$ChangeFilterAndRefresh(group)">
+						<c:TextView Text="#groups#"></c:TextView>
+					</c:HorizontalLayout>
+				</c:HorizontalLayout>
+				<c:HorizontalLayout CssClass="$brandFilter">
+					<c:HorizontalLayout CssClass="select_zone" OnClickAction="$ChangeFilterAndRefresh(brand)">
+						<c:TextView Text="#brands#"></c:TextView>
+					</c:HorizontalLayout>
+				</c:HorizontalLayout>
+			</c:HorizontalLayout>
+		</c:VerticalLayout>
+		<c:HorizontalLine />
+
+		<c:ScrollView Id="grScrollView">
+
+			<c:HorizontalLayout CssClass="margin_top"></c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<s:If Test="$filterType=='group'">
+
+				<s:Push Id="groupsHierarchy" Value="$GetGroups($thisDoc.PriceList,$thisDoc.Stock,$screenContext)"></s:Push>
+				<s:Push Id="currentGroup" Value=""></s:Push>
+				<s:Iterator Id="group" Value="$groupsHierarchy">
+
+					<s:If Test="$ShowGroup($currentGroup,$group.ParentId)">
+
+						<s:Push Id="currentGroup" Value="$group.ParentId"></s:Push>
+						<s:Push Id="dummy" Value="$AssignHierarchy($group)" />
+
+						<c:DockLayout CssClass="parameter_grid" OnClickAction="$AddFilterAndRefresh($parentId, group_filter)">
+							<s:If Test="$isSet">
+								<c:Image Id="flag{$parentId}" CssClass="tick" Visible = "true" />
+							</s:If>
+							<s:Else>
+								<c:Image Id="flag{$parentId}" CssClass="tick" Visible = "false" />
+							</s:Else>
+							<c:TextView Text="$parent"></c:TextView>
+						</c:DockLayout>
+						<c:HorizontalLine />
+					</s:If>
+
+					<s:If Test="$childExists">
+						<c:DockLayout CssClass="parameter_grid" OnClickAction="$AddFilterAndRefresh($group.ChildId, group_filter)">
+							<s:If Test="$group.ChildIsSet != null">
+								<c:Image Id="flag{$group.ChildId}" CssClass="child_tick" Visible = "true" />
+							</s:If>
+							<s:Else>
+								<c:Image Id="flag{$group.ChildId}" CssClass="child_tick" Visible = "false" />
+							</s:Else>
+							<c:TextView Text="$group.Child"></c:TextView>
+						</c:DockLayout>
+						<c:HorizontalLine />
+					</s:If>
+
+				</s:Iterator>
+			</s:If>
+
+
+			<s:Else>
+				<s:Push Id="brands" Value="$GetBrands($thisDoc.PriceList,$thisDoc.Stock,$screenContext)"></s:Push>
+				<s:Iterator Id="brand" Value="$brands">
+
+					<c:HorizontalLayout CssClass="parameter_grid" OnClickAction="$AddFilterAndRefresh($brand.Id, brand_filter)">
+						<s:If Test="$brand.BrandIsSet != null">
+							<c:Image Id="flag{$brand.Id}" CssClass="tick" Visible = "true" />
+						</s:If>
+						<s:Else>
+							<c:Image Id="flag{$brand.Id}" CssClass="tick" Visible = "false" />
+						</s:Else>
+						<c:TextView Text="$brand.Description"></c:TextView>
+					</c:HorizontalLayout>
+					<c:HorizontalLine />
+
+				</s:Iterator>
+			</s:Else>
+
+		</c:ScrollView>
+
+	</c:DockLayout>
+
+</c:Screen>

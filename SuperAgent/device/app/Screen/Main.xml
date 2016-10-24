@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Main.css">
+
+	<s:Push Id="unscheduledVisits" Value="$GetUnscheduledVisits()" />
+	<s:Push Id="encashmentSumm" Value="$GetEncashmentSumm()" />
+	<s:Push Id="receivablesSumm" Value="$GetReceivablesSumm()" />
+
+	<c:SwipeVerticalLayout Id="swipe_vl" Scrollable="False">
+
+		<s:Include File="\Components\Lead.xml"/>
+
+		<c:SwipeHorizontalLayout Id="swipe_layout" Index="1">
+
+			<s:Include File="\Components\SideMenu.xml"/>
+
+			<c:VerticalLayout>
+
+				<c:DockLayout CssClass="top_navigator">
+					<c:DockLayout Id="btnMenu" CssClass="btn_menu" OnClickAction="$OpenMenu($swipe_layout)">
+						<c:Image CssClass="menuIcon" />
+					</c:DockLayout>
+					<c:DockLayout CssClass="btn_space" />
+					<c:HorizontalLayout>
+						<c:TextView Text="#summary#" />
+					</c:HorizontalLayout>
+				</c:DockLayout>
+				<c:HorizontalLine CssClass="navy" />
+
+				<c:VerticalLayout Id="VLayout" CssClass="blue">
+					<c:DockLayout>
+						<c:VerticalLayout CssClass="left">
+							<c:DockLayout CssClass="caption_big">
+								<c:TextView Text="$GetTotal()" />
+								<c:TextView Text="#vpVisits#" CssClass="descr" />
+								<c:TextView Text="#vpPerformed#" CssClass="descr" />
+							</c:DockLayout>
+
+							<c:VerticalLayout CssClass="simple">
+								<c:HorizontalLayout>
+									<c:TextView Text="#further#" CssClass="descr" />
+									<c:TextView Text="$GetVisitsLeft()" CssClass="mark" />
+									<c:TextView Text="#vpVisits#" />
+								</c:HorizontalLayout>
+								<c:TextView Text="#scheduled#" CssClass="descr" />
+							</c:VerticalLayout>
+
+						</c:VerticalLayout>
+
+						<c:VerticalLayout CssClass="right">
+							<c:DockLayout CssClass="grid">
+								<c:VerticalLayout>
+									<c:TextView Text="$GetCommitedScheduledVisits()" CssClass="main_row"></c:TextView>
+									<c:TextView Text="#planned#" CssClass="description_row" />
+									<c:TextView Text="#vpVisits#" CssClass="description_row" />
+								</c:VerticalLayout>
+							</c:DockLayout>
+							<c:HorizontalLine />
+							<c:DockLayout CssClass="grid">
+								<c:VerticalLayout>
+									<c:TextView Text="$unscheduledVisits" CssClass="main_row"></c:TextView>
+									<c:TextView Text="#vpUnplanned#" CssClass="description_row" />
+									<c:TextView Text="#vpVisits#" CssClass="description_row" />
+								</c:VerticalLayout>
+							</c:DockLayout>
+						</c:VerticalLayout>
+
+					</c:DockLayout>
+
+					<s:If Test="$sessionConst.orderEnabled">
+						<c:DockLayout CssClass="short_panel">
+							<c:DockLayout CssClass="grid">
+								<c:VerticalLayout>
+									<c:TextView Text="{$GetOrderSumm()} #currency#" CssClass="main_row"></c:TextView>
+									<c:TextView Text="#amountOfOrdersForToday#" CssClass="description_row" />
+								</c:VerticalLayout>
+							</c:DockLayout>
+						</c:DockLayout>
+					</s:If>
+
+					<s:If Test="$sessionConst.encashEnabled">
+						<c:DockLayout>
+							<c:DockLayout CssClass="grid">
+								<c:VerticalLayout>
+									<c:TextView Text="{$FormatValue($encashmentSumm)} #currency#" CssClass="main_row"></c:TextView>
+									<c:TextView Text="#programmingCollectionForToday#" CssClass="description_row" />
+								</c:VerticalLayout>
+							</c:DockLayout>
+							<c:HorizontalLine />
+							<c:DockLayout CssClass="grid">
+								<c:VerticalLayout>
+									<c:TextView Text="{$FormatValue($receivablesSumm)} #currency#" CssClass="main_row"></c:TextView>
+									<c:TextView Text="#accountsReceivables#" CssClass="description_row" />
+								</c:VerticalLayout>
+							</c:DockLayout>
+						</c:DockLayout>
+					</s:If>
+
+				</c:VerticalLayout>
+
+			</c:VerticalLayout>
+		</c:SwipeHorizontalLayout>
+
+	</c:SwipeVerticalLayout>
+</c:Screen>

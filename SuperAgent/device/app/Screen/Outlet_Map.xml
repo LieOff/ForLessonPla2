@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" xmlns:d="DefaultScope">
+
+	<s:Push Id="outlet" Value="$param1"></s:Push>
+
+	<c:VerticalLayout>
+		<c:DockLayout CssClass="top_navigator">
+			<c:DockLayout CssClass="btn_back" OnClickAction="$DoBack()">
+				<c:Image />
+				<c:TextView Text="#back#" />
+			</c:DockLayout>
+			<c:HorizontalLayout CssClass="btn_forward" />
+			<c:HorizontalLayout>
+				<c:TextView Text="#map#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+		<c:HorizontalLine CssClass="b_line" />
+
+		<c:WebMapGoogle Id="map" />
+
+	</c:VerticalLayout>
+
+</c:Screen>

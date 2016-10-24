@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" xmlns:d="DefaultScope" StyleSheet="Order_EditSKU.css">
+
+	<s:Push Id="thisDoc" Value="$GetCurrentDoc()"></s:Push>
+	<s:Push Id="orderitem" Value="$GetCurrentItem()"></s:Push>
+	<s:Push Id="sku" Value="$GetObject($orderitem.SKU)"></s:Push>
+	
+	<s:Push Id="showimage" Value="$param1"></s:Push>
+
+	<s:If Test="$showimage == null">
+		<s:Push Id="showimage" Value="NotShow"></s:Push>
+	</s:If>
+
+	<c:DockLayout>
+
+		<c:DockLayout CssClass="top_navigator">
+			<c:HorizontalLayout>
+				<c:TextView Text="#skuDetail#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+
+		<c:HorizontalLine />
+
+		<c:HorizontalLayout Id="btnCancel" CssClass="bottom_btn">
+			<c:VerticalLayout OnEvent="Back" OnClickAction="$DeleteAndBack($orderitem)">
+				<c:TextView Text="#cancel#" CssClass="left_tv"></c:TextView>
+			</c:VerticalLayout>
+			<c:VerticalLayout Id="btnAdd" OnEvent="Forward" OnClickAction="$CalculateSKUAndForward($thisDoc.Outlet, $orderitem)">
+				<c:TextView Text="@forwardText" CssClass="right_tv"></c:TextView>
+			</c:VerticalLayout>
+		</c:HorizontalLayout>
+
+		<c:HorizontalLine CssClass="b_line" />
+
+		<c:HorizontalLayout CssClass="caption_grid">
+			<c:TextView Id="itemDescription" Text="{$sku.Description}{$GetFeatureDescr($orderitem.Feature)}"></c:TextView>
+		</c:HorizontalLayout>
+
+		<s:If Test="$sku.DefaultPicture != null">
+			<s:If Test="$showimage == 'NotShow'">
+				<c:HorizontalLayout Id="ShowImage" CssClass="btn_showpicture" OnClickAction="$DoRefresh(Show)">
+					<c:TextView Text="[#showImage#]"></c:TextView>
+				</c:HorizontalLayout>
+			</s:If>
+			<s:If Test="$showimage == 'Show'">
+				<c:HorizontalLayout Id="HideImage" CssClass="btn_showpicture" OnClickAction="$DoRefresh(NotShow)">
+					<c:TextView Text="[#hideImage#]"></c:TextView>
+				</c:HorizontalLayout>
+			</s:If>
+		</s:If>
+
+		<c:ScrollView Id="grScrollView" OnScroll="$OnScroll()">
+
+			<s:If Test="$sku.DefaultPicture != null">
+				<s:If Test="$showimage == 'Show'">
+					<c:HorizontalLine />
+					<c:VerticalLayout CssClass="60" OnClickAction="$ImageActions($image, $sku.Id)">
+						<s:If Test="$SnapshotExists($sku.Id, $sku.DefaultPicture, Catalog_SKU_Files)">
+							<c:Image Id="image" Source="$GetImagePath($sku.Id, $sku.DefaultPicture, $sku.DefaultPictureExtension)" />
+						</s:If>
+						<s:Else>
+							<c:VerticalLayout CssClass="no_image">
+								<c:Image />
+								<c:TextView Text="#imageNotAvailable#" CssClass="text"></c:TextView>
+							</c:VerticalLayout>
+						</s:Else>
+					</c:VerticalLayout>
+					<c:HorizontalLine />
+					<c:HorizontalLayout CssClass="margin_top"></c:HorizontalLayout>
+				</s:If>
+			</s:If>
+
+			<c:HorizontalLayout CssClass="caption_grid">
+				<c:TextView Text="#mainData#:"></c:TextView>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+<!-- 			<c:DockLayout CssClass="parameter_grid">
+				<c:TextView Text="#price#" CssClass="description_row"></c:TextView>
+				<c:TextView Id="orderItemTotalId" Text="$FormatValue($orderitem.Total)" CssClass="value"></c:TextView>
+			</c:DockLayout>
+			<c:HorizontalLine /> -->	
+
+			<c:DockLayout CssClass="parameter_grid">
+				<c:HorizontalLayout CssClass="clickable">
+					<c:TextView Text="#price#" />
+				</c:HorizontalLayout>
+				<c:EditText Id="totalEdit" Text="$TotalOutput($orderitem.Total)" CssClass="value" Keyboard="numeric" OnChange="$ApplyTotal($orderitem)" OnLostFocus="$RefreshScreen()" OnGetFocus="$HideSwiped()" Enabled="$sessionConst.newPriceEnabled"></c:EditText>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+			<c:DockLayout CssClass="parameter_grid" OnClickAction="$FocusOnEditText(orderItemQty, 1)">
+				<c:TextView Text="#quantity#"></c:TextView>
+				<c:EditText Id="orderItemQty" Value="$orderitem.Qty" CssClass="value" Keyboard="numeric" OnGetFocus="$HideSwiped()"></c:EditText>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+			<c:DockLayout CssClass="parameter_grid" OnClickAction="$ChangeUnit($sku.Id, $orderitem)">
+				<c:TextView Text="#packUnit#"></c:TextView>
+				<c:TextView Id="itemUnits" Text="$orderitem.Units.Description" CssClass="value"></c:TextView>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+			<s:If Test="$sessionConst.percentDiscountEnabled">
+				<c:DockLayout CssClass="parameter_grid">
+					<c:HorizontalLayout CssClass="clickable" OnClickAction="$ConvertDiscount($percentDiscountEdit)">
+						<c:TextView Id="discountDescr" Text="$GetDiscountDescription($orderitem.Discount)" />
+					</c:HorizontalLayout>
+					<c:EditText Id="percentDiscountEdit" Text="$DiscountOutput($orderitem.Discount)" CssClass="value" Keyboard="numeric" OnChange="$ApplyDiscount($orderitem)" OnLostFocus="$RefreshDiscount($showimage, $orderitem)" OnGetFocus="$HideSwiped()"></c:EditText>
+				</c:DockLayout>
+				<c:HorizontalLine />	
+			</s:If>
+			
+			<s:If Test="$sessionConst.totaltDiscountEnabled">
+				<c:DockLayout CssClass="parameter_grid">
+					<c:HorizontalLayout CssClass="clickable" OnClickAction="$ConvertTotalDiscount($discountEdit)">
+						<c:TextView Id="totalDiscountDescr" Text="$GetTotalDiscountDescription()" />
+					</c:HorizontalLayout>
+					<c:EditText Id="discountEdit" Text="$GetTotalDiscount()" CssClass="value" Keyboard="numeric" OnChange="$ApplyTotalDiscount($orderitem)" OnLostFocus="$RefreshTotalDiscount($showimage)" OnGetFocus="$HideSwiped()"></c:EditText>
+				</c:DockLayout>
+				<c:HorizontalLine />				
+			</s:If>
+
+			<s:Push Id="historyItems" Value="$GetItemHistory($sku.Id, $thisDoc)"></s:Push>
+			<s:If Test="$historyCount != 0">
+				<c:HorizontalLayout CssClass="caption_grid">
+					<c:TextView Text="{@c_itemsHistory}:"></c:TextView>
+				</c:HorizontalLayout>
+				<c:HorizontalLine />
+				<s:Iterator Id="historyItem" Value="$historyItems">
+					<c:SwipeHorizontalLayout CssClass="swipe_history" Index="1" OnSwipe="$WriteSwipedRow()">
+						<c:HorizontalLayout CssClass="repeat" OnClickAction="$RepeatOrder($orderitem, $historyItem.Qty, $historyItem.Discount, $sku.BaseUnit, $sku.BaseUnit.Description, $historyItem.Price, $historyItem.Total)">
+							<c:TextView Text="#repeat#" />
+						</c:HorizontalLayout>
+						<c:DockLayout CssClass="parameter_grid">
+							<c:TextView Text="$FormatDate($historyItem.Date)" CssClass="black_text"></c:TextView>
+							<c:TextView Text="{$historyItem.Qty} {$sku.BaseUnit.Description}, x {$FormatValue($historyItem.Total)} {#currency#}" CssClass="value"></c:TextView>
+						</c:DockLayout>
+					</c:SwipeHorizontalLayout>
+					<c:HorizontalLine />
+				</s:Iterator>
+			</s:If>
+
+			<s:If Test="$sessionConst.SKUFeaturesRegistration">
+				<c:HorizontalLayout CssClass="end_of_block"></c:HorizontalLayout>
+				<c:HorizontalLayout CssClass="caption_grid">
+					<c:TextView Text="#features#:"></c:TextView>
+				</c:HorizontalLayout>
+				<c:HorizontalLine />
+
+				<s:Iterator Id="feature" Value="$GetFeatures($sku.Id, $thisDoc.Stock)">
+					<c:DockLayout CssClass="parameter_grid" OnClickAction="$ChangeFeatureAndRefresh($orderitem, $feature.Feature, $showimage)">
+						<s:If Test="$AreEqual($orderitem.Feature, $feature.Feature)">
+							<c:Image CssClass="tick" />
+						</s:If>
+						<s:Else>
+							<c:VerticalLayout CssClass="empty_tick"></c:VerticalLayout>
+						</s:Else>
+						<c:TextView Text="$feature.Feature.Description"></c:TextView>
+					</c:DockLayout>
+					<c:HorizontalLine />
+				</s:Iterator>
+			</s:If>
+
+		</c:ScrollView>
+
+	</c:DockLayout>
+
+</c:Screen>

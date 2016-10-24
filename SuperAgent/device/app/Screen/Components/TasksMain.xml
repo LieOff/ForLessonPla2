@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c:Component xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack">
+	<c:SwipeHorizontalLayout Id="swipe_layout" Index="1">
+		<s:Include File="\Components\SideMenu.xml"/>
+		<s:Include File="\Components\SwipeTasks.xml"/>
+	</c:SwipeHorizontalLayout>
+</c:Component>

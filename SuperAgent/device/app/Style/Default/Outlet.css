@@ -1,0 +1,272 @@
+.trple {
+	width: 37.495%;
+	height: 100%;
+	selected-color: #bacdce;
+}
+
+.trple_center{
+	width: 25%;
+	height: 100%;
+	selected-color: #bacdce;
+}
+
+.BIGMemo {
+	height: 100% auto;
+	width: 100%;
+	font: 5% Arial;
+	color: #000000;
+}
+
+.bottom_btn vl TextView {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding-top: 25%;
+	color: #FF7C4A;
+	font: 37% arial;
+}
+
+.trpl_left_tv {
+	text-align: left;
+	margin-left: 2.4mm;
+}
+
+.trpl_center_tv {
+	text-align: center;
+}
+
+.trpl_right_tv {
+	text-align: right;
+	margin-right: 2.4mm;
+}
+
+.swipe_layout {
+	height: 7.8sp;
+	background-color: #ffffff;
+}
+
+.red_swipe {
+	height: 7.8sp;
+	width: 28%;
+	background-color: #f74747;
+}
+
+.red_swipe TextView {
+	height: 30%;
+	width: 100%;
+	text-align: center;
+	vertical-align: central;
+	color: #fff;
+	font: 100% Arial;
+}
+
+.grid vl hl {
+	height: 100%;
+	width: 100%;
+}
+
+.grid vl hl TextView {
+	height: 65%;
+	vertical-align: central;
+}
+
+.grid Button {
+	width: 10.3mm;
+	height: 9mm;
+	margin-top: 16%;
+	margin-right: 2.4mm;
+	dock-align: right;
+	background-image: url(geo_set.png);
+}
+
+.grid img{
+	width: 10.3mm;
+	height: 9mm;
+	dock-align: right;
+	background-image: url(geo_empty.png);
+}
+
+.coordButton {
+	width: 15mm;
+	height: 4.1mm;
+	vertical-align: central;
+	margin-top: 10%;
+	border-style : solid;
+	border-width: 1px;
+	border-color: #FF7C4A;
+	border-radius: 5px;
+	color: #FF7C4A;
+	text-align: center;
+	font: 60% arial;
+}
+
+.add_button{
+	width: 13.5mm;
+	height: 4.1mm;
+	vertical-align: central;
+	margin-top: 10%;
+	border-style : solid;
+	border-width: 1px;
+	border-color: #FF7C4A;
+	border-radius: 5px;
+	color: #FF7C4A;
+	text-align: center;
+	font: 60% arial;
+}
+
+.carousel{
+	height: 25.6mm;
+	background-color: #ffffff;
+}
+
+.carousel vl{
+	height: 100%;
+	width: 45.7mm;
+	margin-top: 0.5mm;
+	margin-bottom: 2.3mm;
+}
+
+.carousel vl img{
+	height: 100%;
+	horizontal-align: central;
+}
+
+.carousel vl TextView{
+	height: 100%;
+	width: 35mm;
+	color: #8e8e93;
+	text-align: center;
+	horizontal-align: central;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	padding-top: 35%;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	white-space: normal;
+	font: 10% arial;
+}
+
+.no_image_small {
+	width: 7mm;
+	height: 100%;
+	dock-align: right;
+	margin-top: 0.3mm;
+	margin-bottom: 0.3mm;
+	margin-right: 2.4mm;
+	background-color: #eeeeee;
+}
+
+.no_image_small img {
+	height: 5mm;
+	width: 5mm;
+	margin-top: 10%;
+	background-image: url(no_image_small.png);
+	horizontal-align: center;
+}
+
+.single_picture{
+	height: 25.6mm;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+.single_picture TextView{
+	height: 100%;
+	width: 35mm;
+	color: #8e8e93;
+	text-align: center;
+	horizontal-align: central;
+	margin-top: 0.5mm;
+	margin-bottom: 2.3mm;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
+	padding-top: 35%;
+	white-space: normal;
+	padding-left: 2mm;
+	padding-right: 2mm;
+	font: 10% arial;
+}
+
+.single_picture img{
+	height: 100%;
+	horizontal-align: central;
+	margin-top: 0.5mm;
+	margin-bottom: 2.3mm;
+}
+
+.snapshot_grid{
+	width: 100%;
+	height: 6.7mm;
+	dock-align: top;
+}
+
+.snapshot_grid TextView{
+	width: 100%;
+	height: 100%;
+	white-space: nowrap;
+	margin-left: 2.4mm;
+	padding-top: 35%;
+	font: 28% Arial;
+	color: #8e8e93;
+	dock-align: left;
+	text-align: left;
+}
+
+.snapshot_grid Button{
+	height: 48%;
+	width: 10.7mm;
+	dock-align: right;
+	margin-right: 2.4mm;
+	margin-top: 25.9%;
+	border-style : solid;
+	border-width: 1px;
+	border-color: #FF7C4A;
+	border-radius: 5px;
+	text-align: center;
+	font: 60% arial;
+}
+
+.parameter_image{
+	width: 0%;
+}
+
+.main_row_available {
+	width: 100%;
+	height: 40%;
+	white-space: normal;
+	color: #FF7C4A;
+	font: 42% Arial;
+}
+
+.not_available_basic{
+	width: 100%;
+	height: 40%;
+	white-space: normal;
+	placeholder-color: #000000;
+	font: 42% Arial;
+}
+
+.not_available {
+	width: 50% auto;
+	height: 100%;
+	padding-top: 30%;
+	vertical-align: central;
+	margin-left: 2.7mm;
+	color: #000000;
+	dock-align: left;
+	font: 36% arial;
+}
+
+.clear{
+	height: 2.2mm;
+	width: 2.2mm;
+	margin-top: 45%;
+	dock-align: right;
+	background-image: url(clear_field.png);
+}
+
+.value{
+	placeholder-color: #8e8e93;
+}

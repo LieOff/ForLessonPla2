@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" xmlns:d="DefaultScope" StyleSheet="Outlet.css">
+
+	<s:If Test="$workflow.name=='Visit'">
+		<s:Push Id="workflow.visit" Value="$CreateVisitIfNotExists($common.UserRef, $workflow.visit, $planVisit)" />
+	</s:If>
+
+	<s:Push Id="outletObj" Value="$LoadObject($workflow.outlet)" />
+	<s:Push Id="outletScreen" Value="true"></s:Push><!-- dirty hack, see Events.js OnApplicationRestore() -->
+
+	<c:DockLayout Id="vOutlet">
+
+		<s:If Test="$CreateVisitEnable()">
+			<c:HorizontalLayout Id="btnDetails" CssClass="bottom_btn">
+				<c:VerticalLayout OnClickAction="$ShowContractorsIfExists($workflow.outlet)" CssClass="trple">
+					<c:TextView Text="#contractors#" CssClass="trpl_left_tv"></c:TextView>
+				</c:VerticalLayout>
+				<c:VerticalLayout Id="btnContacts" OnClickAction="$DoAction(ShowContacts, $workflow.outlet)" CssClass="trple_center">
+					<c:TextView Text="#contacts#" CssClass="trpl_center_tv"></c:TextView>
+				</c:VerticalLayout>
+				<c:VerticalLayout Id="btnVisit" OnClickAction="$DoAction(Plans, $workflow.outlet)" CssClass="trple">
+					<c:TextView Text="#visits#" CssClass="trpl_right_tv"></c:TextView>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+		</s:If>
+		<s:Else>
+			<c:HorizontalLayout Id="btnDetails" CssClass="bottom_btn">
+				<c:VerticalLayout OnClickAction="$ShowContractorsIfExists($workflow.outlet)">
+					<c:TextView Text="#contractors#" CssClass="left_tv"></c:TextView>
+				</c:VerticalLayout>
+				<c:VerticalLayout Id="btnContacts" OnClickAction="$DoAction(ShowContacts, $workflow.outlet)">
+					<c:TextView Text="#contacts#" CssClass="right_tv"></c:TextView>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+		</s:Else>
+		<c:HorizontalLine CssClass="b_line" />
+
+		<s:If Test="$workflow.name!='Visit'">
+			<c:DockLayout CssClass="top_navigator">
+				<c:HorizontalLayout Id="btnBack" CssClass="btn_back" OnEvent="Back" OnClickAction="$SaveAndBack($workflow.outlet)">
+					<c:Image />
+					<c:TextView Text="#list#" />
+				</c:HorizontalLayout>
+				<c:HorizontalLayout CssClass="btn_forward" />
+				<c:HorizontalLayout>
+					<c:TextView Text="#client#" />
+				</c:HorizontalLayout>
+			</c:DockLayout>
+			<c:HorizontalLine />
+		</s:If>
+		<s:Else>
+			<c:DockLayout CssClass="top_navigator">
+				<c:DockLayout Id="btnBack" CssClass="btn_back" OnEvent="Back" OnClickAction="$DoRollbackAction($workflow.visit)">
+					<c:Image />
+					<c:TextView Text="@backvisit" />
+				</c:DockLayout>
+				<c:DockLayout OnEvent="Forward" CssClass="btn_forward" OnClickAction="$CheckNotNullAndForward($workflow.outlet, $workflow.visit)">
+					<c:TextView Id="btnForward" Text="#forward#" />
+				</c:DockLayout>
+				<c:HorizontalLayout>
+					<c:TextView Text="#client#" />
+				</c:HorizontalLayout>
+			</c:DockLayout>
+
+			<c:Image CssClass="1_scroll"></c:Image>
+			<c:HorizontalLine />
+		</s:Else>
+
+		<c:ScrollView Id="grScrollView">
+
+			<c:HorizontalLayout CssClass="caption_grid">
+				<c:TextView Text="#main#:"></c:TextView>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<s:Push Id="snapshots" Value="$GetSnapshots($workflow.outlet)" />
+
+			<s:If Test="@snapshotsExists">
+				<c:DockLayout CssClass="snapshot_grid">
+					<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000008 == true &amp;&amp; @DateAddTru == false">
+						<c:Button Text="#add#" OnClick="$AddSnapshot($workflow.outlet)" />
+					</s:If>
+					<c:TextView Text="#outletSnapshots#" />
+				</c:DockLayout>
+				<s:If Test="@singlePicture">
+					<c:VerticalLayout CssClass="single_picture" OnClick="$ImageActions($snapshots.Id, singleImage)">
+						<s:If Test="$snapshots.FullFileName != '/shared/result.jpg'">
+							<s:If Test="$SnapshotExists($snapshots.FullFileName)">
+								<c:Image Id="singleImage" Source="$snapshots.FullFileName" />
+							</s:If>
+							<s:Else>
+								<c:VerticalLayout CssClass="no_single_image">
+									<c:VerticalLayout CssClass="no_image">
+										<c:Image Id="singleImage" />
+										<c:TextView Text="#imageNotAvailable#" CssClass="text"></c:TextView>
+									</c:VerticalLayout>
+								</c:VerticalLayout>
+							</s:Else>
+						</s:If>
+						<s:Else>
+							<c:VerticalLayout CssClass="no_single_image">
+								<c:VerticalLayout CssClass="no_image">
+									<c:Image Id="singleImage" />
+									<c:TextView Text="#imageNotAvailable#" CssClass="text"></c:TextView>
+								</c:VerticalLayout>
+							</c:VerticalLayout>
+						</s:Else>
+					</c:VerticalLayout>
+				</s:If>
+				<s:Else>
+					<c:SwipeHorizontalLayout Id="snapshotLayout" CssClass="carousel" Alignment="Center">
+						<s:Iterator Id="snapshot" Value="$snapshots" Status="statusCount">
+							<s:Push Id="index" Value="$statusCount.Index" />
+							<c:VerticalLayout OnClick="$ImageActions($snapshot.Id, image{$index}, $workflow.outlet, $snapshot.FileName)">
+								<s:If Test="$snapshot.FullFileName != '/shared/result.jpg'">
+									<s:If Test="$SnapshotExists($snapshot.FullFileName)">
+										<c:Image Id="image{$index}" Source="$snapshot.FullFileName" />
+									</s:If>
+									<s:Else>
+										<c:VerticalLayout CssClass="no_image">
+											<c:Image Id="image{$index}" />
+											<c:TextView Text="#imageNotAvailable#" CssClass="text"></c:TextView>
+										</c:VerticalLayout>
+									</s:Else>
+								</s:If>
+								<s:Else>
+									<c:VerticalLayout CssClass="no_image">
+										<c:Image Id="image{$index}" />
+										<c:TextView Text="#imageNotAvailable#" CssClass="text"></c:TextView>
+									</c:VerticalLayout>
+								</s:Else>
+							</c:VerticalLayout>
+						</s:Iterator>
+					</c:SwipeHorizontalLayout>
+				</s:Else>
+				<c:HorizontalLine />
+			</s:If>
+			<s:Else>
+				<s:If Test="$sessionConst.editOutletParameters">
+					<c:DockLayout CssClass="grid">
+						<c:VerticalLayout>
+							<c:TextView Text="#outletSnapshots#" CssClass="description_row" />
+							<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000008 == true &amp;&amp; @DateAddTru == false">
+								<c:Button OnClick="$AddSnapshot($workflow.outlet)" Text="#add#" CssClass="add_button" />
+							</s:If>
+						</c:VerticalLayout>
+					</c:DockLayout>
+					<c:HorizontalLine />
+				</s:If>
+			</s:Else>
+
+			<c:HorizontalLayout CssClass="grid" OnClickAction="$FocusIfHasEditText(outletDescr, $sessionConst.editOutletParameters, 000000001)">
+				<c:VerticalLayout>
+					<c:TextView Text="#description#" CssClass="description_row"></c:TextView>
+					<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000001 == true &amp;&amp; @DateAddTru == false">
+						<c:EditText Id="outletDescr" Value="$workflow.outlet.Description" OnGetFocus="$CashDesc($workflow.outlet)" OnLostFocus="$CheckForNullDesc($workflow.outlet)" CssClass="main_row"></c:EditText>
+					</s:If>
+					<s:Else>
+						<c:TextView Id="outletDescr" Text="$workflow.outlet.Description" CssClass="not_available_basic"></c:TextView>
+					</s:Else>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<c:HorizontalLayout CssClass="grid" OnClickAction="$SelectIfNotAVisit($workflow.outlet, OutletStatus, $status, #status#, $sessionConst.editOutletParameters, 000000007)">
+				<c:VerticalLayout>
+					<c:TextView Text="#status#" CssClass="description_row" />
+					<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000007 == true &amp;&amp; $workflow.name != 'Visit'">
+						<c:TextView Id="status" Text="$GetStatusDescription($workflow.outlet)" CssClass="main_row_available" />
+					</s:If>
+					<s:Else>
+						<c:TextView Id="status" Text="$GetStatusDescription($workflow.outlet)" CssClass="not_available_basic" />
+					</s:Else>
+				</c:VerticalLayout>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<c:DockLayout CssClass="grid" OnClickAction="$FocusIfHasEditText(outletAddress, $sessionConst.editOutletParameters, 000000002)">
+				<c:Button Id="clearButton" CssClass="clear" Visible="false" OnClick="$ClearField($outletAddress, $workflow.outlet, Address)"/>
+				<c:VerticalLayout>
+					<c:TextView Text="#address#" CssClass="description_row"></c:TextView>
+					<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000002 == true  &amp;&amp; @DateAddTru == false">
+						<c:MemoEdit Id="outletAddress" Text="$workflow.outlet.Address" OnGetFocus="$ShowClearButton($clearButton)" OnLostFocus="$HideClearButton($clearButton)" OnChange="$SaveValue($workflow.outlet)"></c:MemoEdit>
+					</s:If>
+					<s:Else>
+						<c:TextView Id="outletAddress" Text="$workflow.outlet.Address" CssClass="not_available_basic"></c:TextView>
+					</s:Else>
+				</c:VerticalLayout>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+
+			<c:DockLayout CssClass="grid">
+				<!-- <s:If Test="$workflow.outlet != null &amp;&amp; $workflow.outlet.Lattitude != 0 &amp;&amp; $workflow.outlet.Longitude != 0"> -->
+				<s:If Test="$EmptyCoordinates($workflow.outlet)">
+					<c:Button OnClickAction="$DoAction(ShowMap, $workflow.outlet)" />
+				</s:If>
+				<s:Else>
+					<c:Image />
+				</s:Else>
+				<c:VerticalLayout>
+					<c:TextView Text="#coordinates#" CssClass="description_row"></c:TextView>
+					<s:If Test="$EmptyCoordinates($workflow.outlet)">
+						<c:HorizontalLayout OnClick="$ShowCoordOptions($workflow.outlet, $sessionConst.editOutletParameters)">
+							<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000003 == true  &amp;&amp; @DateAddTru == false">
+								<c:TextView Id="outletCoord" Text="{$workflow.outlet.Lattitude}; {$workflow.outlet.Longitude}" CssClass="main_row_available"></c:TextView>
+							</s:If>
+							<s:Else>
+								<c:TextView Id="outletCoord" Text="{$workflow.outlet.Lattitude}; {$workflow.outlet.Longitude}" CssClass="not_available_basic"></c:TextView>
+							</s:Else>
+						</c:HorizontalLayout>
+					</s:If>
+					<s:Else>
+						<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000003 == true &amp;&amp; @DateAddTru == false">
+							<c:Button OnClick="$SetLocation($workflow.outlet)" Text="#set#" CssClass="coordButton" />
+						</s:If>
+					</s:Else>
+				</c:VerticalLayout>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+			<c:DockLayout CssClass="grid" OnClickAction="$SelectIfNotAVisit($workflow.outlet, Distributor, $outletDistr, #partner#, $sessionConst.editOutletParameters, 000000006)">
+				<c:VerticalLayout>
+					<c:TextView Text="#partner#" CssClass="description_row"></c:TextView>
+					<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000006 == true &amp;&amp; $workflow.name != 'Visit'">
+						<c:TextView Id="outletDistr" Text="$GetDescr($workflow.outlet)" CssClass="main_row_available"></c:TextView>
+					</s:If>
+					<s:Else>
+						<c:TextView Id="outletDistr" Text="$GetDescr($workflow.outlet)" CssClass="not_available_basic"></c:TextView>
+					</s:Else>
+				</c:VerticalLayout>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+			<c:DockLayout CssClass="grid" OnClickAction="$SelectIfNotAVisit($workflow.outlet,Class,$outletClass,#outlet_class#, $sessionConst.editOutletParameters, 000000005)">
+				<c:VerticalLayout>
+					<c:TextView Text="#outlet_class#" CssClass="description_row"></c:TextView>
+					<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000005 == true &amp;&amp; $workflow.name != 'Visit'">
+						<c:TextView Id="outletClass" Text="$workflow.outlet.Class.Description" CssClass="main_row_available"></c:TextView>
+					</s:If>
+					<s:Else>
+						<c:TextView Id="outletClass" Text="$workflow.outlet.Class.Description" CssClass="not_available_basic"></c:TextView>
+					</s:Else>
+				</c:VerticalLayout>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+			<c:DockLayout CssClass="grid" OnClickAction="$SelectIfNotAVisit($workflow.outlet,Type,$outletType,#outlet_type#, $sessionConst.editOutletParameters, 000000004)">
+				<c:VerticalLayout>
+					<c:TextView Text="#outlet_type#" CssClass="description_row"></c:TextView>
+					<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $primaryParametersSettings.000000004 == true &amp;&amp; $workflow.name != 'Visit'">
+						<c:TextView Id="outletType" Text="$workflow.outlet.Type.Description" CssClass="main_row_available"></c:TextView>
+					</s:If>
+					<s:Else>
+						<c:TextView Id="outletType" Text="$workflow.outlet.Type.Description" CssClass="not_available_basic"></c:TextView>
+					</s:Else>
+				</c:VerticalLayout>
+			</c:DockLayout>
+			<c:HorizontalLine />
+
+			<c:HorizontalLayout CssClass="caption_grid">
+				<c:TextView Text="#additionally#:"></c:TextView>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+
+			<s:Iterator Id="parameter" Value="$GetOutletParameters($workflow.outlet)" Status="statusCount">
+
+				<s:Push Id="index" Value="$statusCount.Index"></s:Push>
+				<s:Push Id="visible" Value="$parameter.Visible"></s:Push>
+				<s:Push Id="editable" Value="$parameter.Editable"></s:Push>
+				<s:If Test="$visible">
+					<c:DockLayout CssClass="parameter_grid" OnClickAction="$GoToParameterAction($parameter.TypeDescription, $parameter.Value, Value, $workflow.outlet, $parameter.Id, control{$index}, $parameter.Description, $editable, $index, $parameter.IsInputField)">
+						<s:If Test="$sessionConst.editOutletParameters == true &amp;&amp; $parameter.IsInputField == true &amp;&amp; $editable == true &amp;&amp; @DateAddTru == false">
+							<c:EditText Id="control{$index}" Text="$parameter.Value" Placeholder="—" OnLostFocus="$RoundToIntIfNeed($parameter.TypeDescription, $parameterValue, Value, $workflow.outlet, $parameter.Id)" OnChange="$AssignParameterValue($parameter.TypeDescription, $parameterValue, Value, $workflow.outlet, $parameter.Id)" CssClass="value" Keyboard="$parameter.KeyboardType"></c:EditText>
+						</s:If>
+						<s:Else>
+							<s:If Test="$parameter.TypeDescription == 'Snapshot'">
+								<s:If Test="$parameter.Value == null || $parameter.Value == ''">
+									<c:TextView Text="#noSnapshot#" CssClass="value"></c:TextView>
+								</s:If>
+								<s:Else>
+									<s:If Test="$parameter.FullFileName != '/shared/result.jpg'">
+										<s:If Test="$SnapshotExists($parameter.FullFileName)">
+											<c:Image Id="parameterImage{$index}" Source="$parameter.FullFileName" CssClass="parameter_image" />
+										</s:If>
+										<s:Else>
+											<c:VerticalLayout CssClass="no_image_small">
+												<c:Image Id="parameterImage{$index}" />
+											</c:VerticalLayout>
+										</s:Else>
+									</s:If>
+									<s:Else>
+										<c:VerticalLayout CssClass="no_image_small">
+											<c:Image Id="parameterImage{$index}" />
+										</c:VerticalLayout>
+									</s:Else>
+								</s:Else>
+							</s:If>
+							<s:Else>
+								<c:TextView Id="control{$index}" Text="$parameter.AnswerOutput" CssClass="value"></c:TextView>
+							</s:Else>
+						</s:Else>
+						<s:If Test="$editable == true &amp;&amp; $sessionConst.editOutletParameters == true &amp;&amp; @DateAddTru == false">
+							<c:TextView Text="$parameter.Description"></c:TextView>
+						</s:If>
+						<s:Else>
+							<c:TextView Text="$parameter.Description" CssClass="not_available"></c:TextView>
+						</s:Else>
+					</c:DockLayout>
+					<c:HorizontalLine />
+				</s:If>
+			</s:Iterator>
+
+			<c:HorizontalLayout CssClass="end_of_block" />
+
+		</c:ScrollView>
+
+	</c:DockLayout>
+
+</c:Screen>

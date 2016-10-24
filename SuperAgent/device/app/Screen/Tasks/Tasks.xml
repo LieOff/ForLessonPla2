@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Tasks.css">
+
+	<s:Push Id="outlet" Value="$GetOutlet()"></s:Push>
+
+		<s:If Test="$HasMenu()">
+			<s:Include File="\Components\TasksMain.xml"/>
+		</s:If>
+		<s:Else>
+			<s:Include File="\Components\SwipeTasks.xml"/>
+		</s:Else>
+
+
+</c:Screen>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Tasks.css">
+
+  <c:DockLayout>
+    <c:DockLayout CssClass="top_navigator">
+        <c:DockLayout Id="btnBack" CssClass="btn_back" OnEvent="Back" OnClickAction="$DoBack()">
+          <c:Image />
+          <c:TextView Text="@back" />
+        </c:DockLayout>
+        <c:DockLayout Id="btnForward" CssClass="btn_forward"> </c:DockLayout>
+        <c:HorizontalLayout Id="titleForward">
+          <c:TextView Text="@title" />
+        </c:HorizontalLayout>
+      <c:HorizontalLayout CssClass="margin_top" />
+    </c:DockLayout>
+      <c:HorizontalLine />
+      <c:ScrollView Id="grScrollView">
+        <c:TextView Text="$param1" CssClass="caption" />
+      </c:ScrollView>
+  </c:DockLayout>
+</c:Screen>

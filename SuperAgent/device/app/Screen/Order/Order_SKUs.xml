@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Order_SKUs.css">
+
+	<s:Push Id="thisDoc" Value="$GetCurrentDoc()"></s:Push>
+	<s:Push Id="search" Value="$param1"></s:Push>
+
+	<s:Push Id="skusByGroup" Value="$GetSKUAndGroups($search, $thisDoc)"></s:Push>
+
+	<c:DockLayout>
+
+		<c:DockLayout CssClass="top_navigator">
+			<c:HorizontalLayout>
+				<c:TextView Text="#skuAdd#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+
+		<c:HorizontalLayout Id="btnDone" CssClass="bottom_btn" OnEvent="Back" OnClickAction="$GoBackTo()">
+			<c:TextView Text="#ready#"></c:TextView>
+		</c:HorizontalLayout>
+		<c:HorizontalLine CssClass="b_line" />
+
+		<c:HorizontalLine />
+
+		<c:DockLayout CssClass="search">
+			<c:Button Id="btnSearch" Text="#search#" OnClickAction="$DoRefresh($edtSearch.Text)"></c:Button>
+			<c:DockLayout>
+				<c:Image />
+				<c:EditText Id="edtSearch" Text="$search" Placeholder="#search#"></c:EditText>
+			</c:DockLayout>
+		</c:DockLayout>
+		<c:HorizontalLine />
+
+		<c:DockLayout CssClass="parameter_grid" OnClickAction="$Workflow.DoAction(SetFilter, Order)">
+			<c:TextView Text="#filter#"></c:TextView>
+			<c:Image></c:Image>
+		</c:DockLayout>
+		<c:HorizontalLine />
+
+		<s:If Test="@doGroupping">
+		</s:If>
+		<s:Else>
+			<c:HorizontalLayout Id="Orderadd" CssClass="caption_grid">
+				<c:TextView Text="#skuList#:"></c:TextView>
+			</c:HorizontalLayout>
+			<c:HorizontalLine />
+		</s:Else>
+
+		<c:ScrollView Id="grScrollView" OnScroll="$OnScroll()">
+			<s:If Test="@doGroupping">
+				<s:Push Id="currentGroup" Value=""></s:Push>
+			</s:If>
+
+			<s:Iterator Id="item" Value="$skusByGroup" Status="statusCount">
+				<s:Push Id="index" Value="$statusCount.Index"></s:Push>
+
+				<s:If Test="@doGroupping">
+					<s:If Test="$currentGroup != $item.GroupDescription">
+						<s:Push Id="currentGroup" Value="$item.GroupDescription"></s:Push>
+						<s:Push Id="groupPath" Value="$GetGroupPath($item.GroupId, $item.GroupParent, $item.ParentDescription)"></s:Push>
+						<c:HorizontalLayout CssClass="caption_grid">
+							<c:TextView Text="{$groupPath} / {$currentGroup}"></c:TextView>
+						</c:HorizontalLayout>
+						<c:HorizontalLine CssClass="editLine" />
+					</s:If>
+				</s:If>
+
+
+				<c:SwipeHorizontalLayout Id="swipe_layout{$index}" CssClass="swipe_order" Index="1" OnSwipe="$GetQuickOrder($item.Id, $item.Price, pack{$index}, editText{$index}, textView{$index}, $item.RecOrder, $item.UnitId, $item.RecUnit)">
+					<c:HorizontalLayout CssClass="quickOrder">
+						<c:VerticalLayout>
+							<c:HorizontalLayout>
+								<c:HorizontalLayout OnClickAction="$FocusOnEditText(editText{$index}, 1)">
+									<c:EditText Id="editText{$index}" Text="0" Keyboard="numeric" CssClass="numVar" />
+								</c:HorizontalLayout>
+								<c:Button Text="+1" CssClass="add_button" OnClick="$AddToOrder(editText{$index})" />
+								<c:Button CssClass="cart_button" OnClick="$CreateOrderItem(editText{$index}, textView{$index}, pack{$index}, $item.Id, $item.Price, swipe_layout{$index}, $item.RecOrder, $item.UnitId)" />
+							</c:HorizontalLayout>
+							<c:TextView Id="textView{$index}" Text="0 {@alreadyOrdered}" />
+						</c:VerticalLayout>
+					</c:HorizontalLayout>
+					<c:DockLayout OnClickAction="$SelectSKU($item.Id, $item.Price, $item.RecOrder, $item.UnitId, $thisDoc)" CssClass="grid">
+						<c:Image />
+						<c:VerticalLayout>
+							<c:DockLayout>
+								<s:If Test="$workflow.currentDoc=='Order'">
+									<s:If Test="$item.OrderRecOrder==2">
+										<c:VerticalLayout>
+											<c:TextView Text="{$item.RecOrder} {$item.RecUnit}" CssClass="rec_order" />
+											<c:TextView Text="#recommended#" CssClass="rec_comment" />
+										</c:VerticalLayout>
+									</s:If>
+									<s:Else>
+										<s:If Test="$item.OrderRecOrder>0">
+											<c:TextView Text="#recommended#" CssClass="single_rec" />
+										</s:If>
+									</s:Else>
+								</s:If>
+								<c:TextView Text="$item.Description" CssClass="main_row"></c:TextView>
+							</c:DockLayout>
+							<c:TextView Text="#price2# {$FormatValue($item.Price)}  #stock#: {$item.CommonStock}  #brand#: {$item.Brand}" CssClass="description_row"></c:TextView>
+						</c:VerticalLayout>
+					</c:DockLayout>
+				</c:SwipeHorizontalLayout>
+				<c:HorizontalLine />
+
+			</s:Iterator>
+
+		</c:ScrollView>
+
+	</c:DockLayout>
+
+</c:Screen>

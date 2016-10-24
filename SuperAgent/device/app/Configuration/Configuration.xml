@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c:Configuration xmlns:c="BitMobile.Configuration" xmlns:s="BitMobile.ValueStack">
+
+	<c:BusinessProcess File="BusinessProcess.xml" />
+
+	<c:Style>
+
+		<c:DefaultStyles>
+
+			<c:DefaultStyle File="default.css" />
+			<s:If Test="$isTablet">
+				<c:DefaultStyle File="tablet.css" />
+			</s:If>
+			<s:Else>
+				<c:DefaultStyle File="phone.css" />
+			</s:Else>
+
+		</c:DefaultStyles>
+
+	</c:Style>
+
+	<c:Script>
+
+		<c:GlobalEvents File="Global\Events.js" />
+
+		<c:GlobalModules>
+			<c:Module Name="Global" File="Global\Global.js" />
+			<c:Module Name="Indicators" File="Global\Indicators.js"/>
+			<c:Module Name="Images" File="Global\Images.js" />
+			<c:Module Name="Dialogs" File="Global\Dialogs.js" />
+			<c:Module Name="GlobalWorkflow" File="Global\GlobalWorkflow.js" />
+			<c:Module Name="OrderItem" File="Global\OrderItem.js" />
+		</c:GlobalModules>
+
+		<c:Mixins>
+			<c:Mixin File="Mixins\SideMenu.js" Target="*\Main.js" />
+			<c:Mixin File="Mixins\Common.js" Target="*.js" />
+			<c:Mixin File="Mixins\Workflow.js" Target="*.js" />
+			<c:Mixin File="Mixins\DB.js" Target="*.js" />
+
+		</c:Mixins>
+		
+	</c:Script>
+
+</c:Configuration>

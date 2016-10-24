@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Visit_SKUs.css">
+
+	<s:Push Id="outlet" Value="$workflow.outlet"></s:Push>
+	<s:Push Id="visit" Value="$workflow.visit"></s:Push>
+	<s:Push Id="questions" Value="$GetQuestionsByQuestionnaires($outlet)"></s:Push>
+
+	<c:VerticalLayout Id="screenContainer">
+
+		<c:DockLayout Id="TopNav" CssClass="top_navigator">
+			<c:DockLayout Id="btnBack" CssClass="btn_back" OnEvent="Back" OnClickAction="$GetActionAndBack()">
+				<c:Image />
+				<c:TextView Text="#back#" />
+			</c:DockLayout>
+			<s:If Test="@forwardIsntAllowed">
+				<c:DockLayout Id="btn_forward" CssClass="forward" OnEvent="Forward" OnClickAction= "$CountResultAndForward()">
+					<c:VerticalLayout></c:VerticalLayout>
+					<c:TextView Id="obligateredButton" Text="{@obligateNumber})" />
+					<c:Image Id="imagForw" />
+					<c:TextView Id="TextForw" Text="#forward# (" />
+				</c:DockLayout>
+			</s:If>
+			<s:Else>
+				<c:DockLayout Id="btn_forward" CssClass="btn_forward" OnEvent="Forward" OnClickAction="$CountResultAndForward()">
+					<c:TextView Id="btnForward" Text="#forward#" />
+				</c:DockLayout>
+			</s:Else>
+			<c:HorizontalLayout>
+				<c:TextView Text="#questions#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+
+		<c:HorizontalLayout CssClass="VertDisp">
+			<c:VerticalLayout>
+				<c:HorizontalLayout CssClass="small_grid">
+					<s:If Test="@regularAnswers">
+						<c:HorizontalLayout CssClass="mode_left_button_on">
+							<c:HorizontalLayout Id="regular" CssClass="select_zone" OnClick="$ChangeListAndRefresh(1)">
+								<c:TextView Id="CountRegAnswer" Text="#regular# ({@regular_answ} #of# {@regular_total})"></c:TextView>
+							</c:HorizontalLayout>
+						</c:HorizontalLayout>
+						<c:HorizontalLayout CssClass="mode_right_button_off">
+							<c:HorizontalLayout Id="nonregular" CssClass="select_zone" OnClick="$ChangeListAndRefresh(0)">
+								<c:TextView Id="CountNoNRegAnswer" Text="#nonregular# ({@single_answ} #of# {@single_total})"></c:TextView>
+							</c:HorizontalLayout>
+						</c:HorizontalLayout>
+					</s:If>
+					<s:Else>
+						<c:HorizontalLayout CssClass="mode_left_button_off">
+							<c:HorizontalLayout Id="regular" CssClass="select_zone" OnClick="$ChangeListAndRefresh(1)">
+								<c:TextView Id="CountRegAnswer" Text="#regular# ({@regular_answ} #of# {@regular_total})"></c:TextView>
+							</c:HorizontalLayout>
+						</c:HorizontalLayout>
+						<c:HorizontalLayout CssClass="mode_right_button_on">
+							<c:HorizontalLayout Id="nonregular" CssClass="select_zone" OnClick="$ChangeListAndRefresh(0)">
+								<c:TextView Id="CountNoNRegAnswer" Text="#nonregular# ({@single_answ} #of# {@single_total})"></c:TextView>
+							</c:HorizontalLayout>
+						</c:HorizontalLayout>
+					</s:Else>
+				</c:HorizontalLayout>
+			</c:VerticalLayout>
+		</c:HorizontalLayout>
+
+
+
+		<!-- progress picture -->
+		<c:Image CssClass="3_scroll"></c:Image>
+		<c:HorizontalLine />
+
+			<c:ScrollView Id="grScrollView">
+
+				<s:If Test="$HasQuestions()">
+
+					<!--отсюда пошли   -->
+					<s:Iterator Id="question" Value="$questions" Status="statusCount">
+
+						<s:Push Id="index" Value="{$statusCount.Index}"></s:Push>
+
+						<c:DockLayout Id="DockLa{$index}" CssClass="grid" OnClickAction="$FocusOnEditText(control{$index}, $question.IsInputField)">
+							<s:If Test="$question.Obligatoriness=='1'">
+								<s:If Test="$question.Answer == null || $question.Answer == ''">
+									<c:HorizontalLayout Id="Req{$index}" CssClass="required_side_wh"></c:HorizontalLayout>
+								</s:If>
+								<s:Else>
+									<c:HorizontalLayout Id="Req{$index}" CssClass="answered_side_wh"></c:HorizontalLayout>
+								</s:Else>
+							</s:If>
+							<s:Else>
+								<c:HorizontalLayout CssClass="empty_side_wh"></c:HorizontalLayout>
+							</s:Else>
+							<s:If Test="$question.FullFileName != null">
+								<c:HorizontalLayout Id="HorControl{$index}" OnClickAction="$GoToQuestionAction($question.AnswerType, $visit, control{$index}, $question.Question, $question.Answer, $question.Description, $index)">
+									<c:TextView Text="$question.Description" CssClass="description_row"></c:TextView>
+									<s:If Test="$question.Answer == null || $question.Answer == ''">
+										<c:VerticalLayout Id="controlVert{$index}">
+											<c:VerticalLayout Id="controlVertIn{$index}" CssClass="no_answer">
+												<c:Image Id="control{$index}" />
+											</c:VerticalLayout>
+										</c:VerticalLayout>
+									</s:If>
+									<s:Else>
+										<s:If Test="$question.FullFileName != '/shared/result.jpg'">
+											<s:If Test="$SnapshotExists($question.FullFileName)">
+												<c:VerticalLayout Id="controlVert{$index}">
+													<c:Image Id="control{$index}" CssClass="answer_snapshot" Source="$GetImagePath($visit.Id, $outlet, $question.Answer)"></c:Image>
+												</c:VerticalLayout>
+											</s:If>
+											<s:Else>
+											</s:Else>
+										</s:If>
+										<s:Else>
+											<c:VerticalLayout Id="controlVert{$index}">
+												<c:VerticalLayout CssClass="no_image">
+													<c:Image Id="control{$index}" />
+												</c:VerticalLayout>
+											</c:VerticalLayout>
+										</s:Else>
+									</s:Else>
+								</c:HorizontalLayout>
+							</s:If>
+							<s:Else>
+								<c:VerticalLayout OnClickAction="$GoToQuestionAction($question.AnswerType, $visit, control{$index}, $question.Question, $question.Answer, $question.Description, $index)">
+									<c:TextView Text="$question.Description" CssClass="description_row"></c:TextView>
+									<s:If Test="$question.IsInputField=='1'">
+										<s:Push Id="submitCollectionString" Value="$AddToSubmitCollection($submitCollectionString, control{$index})"></s:Push>
+										<c:EditText Id="control{$index}" Text="$question.Answer" Placeholder="—" OnGetFocus="$BuferAns()" OnChange="$AssignAnswer($question.Question, null, $question.AnswerType)" OnLostFocus="$FormatAndRefresh($question.Question, $question.AnswerType, $index, $question.Obligatoriness)" Keyboard="$question.KeyboardType" CssClass="answer_main_row" Length="140"></c:EditText>
+									</s:If>
+									<s:Else>
+										<c:TextView Id="control{$index}" Text="$question.AnswerOutput" CssClass="answer_main_row"></c:TextView>
+									</s:Else>
+								</c:VerticalLayout>
+							</s:Else>
+						</c:DockLayout>
+						<c:HorizontalLine />
+
+					</s:Iterator>
+
+					<c:HorizontalLayout CssClass="end_of_block" />
+
+				</s:If>
+
+				<s:Else>
+					<c:HorizontalLayout CssClass="margin_top" />
+					<c:TextView Text="#no_questions_list#" CssClass="no_items" />
+				</s:Else>
+
+			</c:ScrollView>
+
+	</c:VerticalLayout>
+
+</c:Screen>

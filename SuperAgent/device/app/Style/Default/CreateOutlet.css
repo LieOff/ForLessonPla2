@@ -1,0 +1,145 @@
+body dl {
+	background-color: #efeff4;
+}
+
+.main_row {
+	color: #FF7C4A;
+}
+
+.grid vl {
+	width: 100%;
+	padding-right: 11%;
+}
+
+.grid vl MemoEdit {
+	margin-top: 10%;
+}
+
+.partialW {
+	width: 80%;
+	height: 100%;
+	padding-right: 2.4mm;
+	padding-top: 11%;
+	dock-align: left;
+}
+
+.phone {
+	width: 3.5mm;
+	height: 100%;
+	/*margin-top: 37%;*/
+	margin-right: 3mm;
+	dock-align: right;
+}
+
+.phone vl{
+	background-image: url(phone.png);
+	height: 0%;
+	width: 100%;
+	vertical-align: central;
+}
+
+/*.description_row {
+	height: 40%;
+	font: 42% Arial;
+	color: #8e8e93;
+}
+
+.main_row {
+	height: 40%;
+	margin-top: 5%;
+	white-space: normal;
+	color: #FF7C4A;
+}*/
+
+.left_tv{
+	color: #fd472b;
+}
+
+/*.right_tv{
+	width: 100%;
+	height: 100%;
+}*/
+
+.gr_right_tv{
+	height: 100%;
+	width: 5% auto;
+	padding-top: 26%;
+	text-align: right;
+	color: #bebebe;
+	font: 39.5% arial;
+	dock-align: right;
+	padding-left: 0%;
+	padding-right: 0%;
+}
+
+.gr_right_tv_img{
+	background-image: url(required_h_wh.png);
+	width: 0%;
+	height: 28%;
+	margin-right: 1%;
+	margin-top: 36%;
+	dock-align: right;
+}
+
+.gr_right_tv_mrg{
+	height: 100%;
+	width: 5%;
+	dock-align: right;
+}
+
+/*---------markers---------*/
+
+.required_side_wh{
+	height: 100%;
+	width: 1.2mm;
+	background-image: url(required_side_wh.png);
+	dock-align: left;
+	padding-right: 0mm;
+}
+
+.answered_side_wh{
+	height: 100%;
+	width: 1.2mm;
+	background-image: url(answered_side_wh.png);
+	dock-align: left;
+	padding-right: 0mm;
+}
+
+.empty_side_wh{
+	height: 100%;
+	width: 1.2mm;
+	dock-align: left;
+}
+
+.parameter_grid hl{
+	margin-left: 0mm;
+}
+
+/*---------required grid--------*/
+
+.required_grid {
+	height: 7.9mm;
+	selected-color: #bacdce;
+	background-color: #efeff4;
+	dock-align: top;
+	padding-left: 2.4mm;
+}
+
+.required_grid TextView {
+	width: 25% auto;
+	height: 50%;
+	text-align: left;
+	margin-top: 42%;
+	white-space: nowrap;
+	font: 60% arial;
+	color: #8e8e93;
+}
+
+.required_grid img{
+	background-image: url(required_h_gr.png);
+	width: 0%;
+	height: 25%;
+	margin-top: 46%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+}

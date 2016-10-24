@@ -1,0 +1,16 @@
+
+.parameter_grid TextView {
+	width: 100%;
+}
+
+.aligner{
+	height: 6.7mm;
+	width: 100%;
+	dock-align: top;
+	horizontal-align: central;
+	background-color: #4A4C60;
+}
+
+.parameter_grid img {
+	margin-right: 0mm;
+}

@@ -1,0 +1,181 @@
+
+.grid vl dl{
+	width: 100%;
+	height: 40%;
+}
+
+.grid vl dl vl{
+	width: 9.2mm;
+	height: 84%;
+	dock-align: right;
+	margin-top: 10%;
+	margin-right: 0.7mm;
+	padding-bottom: 7%;
+	padding-top: 4%;
+	text-align: center;
+	color: #ffffff;
+	background-color: #4dd865;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #4dd865;
+	border-radius: 5px;
+}
+
+.single_rec{
+	width: 9.2mm;
+	height: 47%;
+	dock-align: right;
+	margin-top: 10%;
+	margin-right: 0.7mm;
+	padding-bottom: 4%;
+	padding-top: 4%;
+	padding-left: 5%;
+	text-align: center;
+	color: #ffffff;
+	background-color: #4dd865;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #4dd865;
+	border-radius: 5px;
+	font: 67% Arial;
+}
+
+.rec_order{
+	width: 100%;
+	height: 42.75%;
+	margin-bottom: 0%;
+	text-align: center;
+	color: #ffffff;
+	font: 100% Arial;
+}
+
+.rec_comment{
+	width: 100%;
+	height: 40%;
+	text-align: center;
+	margin-top: 0%;
+	margin-bottom: 5%;
+	color: #ffffff;
+	font: 100% Arial;
+}
+
+.main_row{
+	height: 100%;
+	color: #000;
+}
+
+.parameter_grid TextView {
+	width: 74%;
+}
+
+.description_row {
+	height: 40%;
+	font: 42% Arial;
+}
+
+.swipe_layout {
+	height: 6.7mm;
+	background-color: #ffffff;
+}
+
+.swipe_order {
+	height: 13.8mm;
+}
+
+.quickOrder {
+	height: 13.8mm;
+	width: 36.7mm;
+	background-color: #4dd865;
+}
+
+.quickOrder vl {
+	height: 100%;
+	width: 100%;
+}
+
+.quickOrder vl TextView {
+	height: 100%;
+	width: 100%;
+	margin-left: 9%;
+	margin-top: 5%;
+	color: #ffffff;
+	font: 56% Arial;
+}
+
+.quickOrder vl hl {
+	height: 52%;
+	width: 100%;
+	margin-top: 17%;
+}
+
+.add_button {
+	height: 100%;
+	width: 19.8%;
+	margin-left: 1.7%;
+	selected-color: #50cb65;
+	background-image: url(empty.png);
+	color: #ffffff;
+	font: 33.5% Arial;
+}
+
+.cart_button {
+	height: 100%;
+	width: 30.1%;
+	margin-left: 1.7%;
+	selected-color: #50cb65;
+	background-image: url(cart.png);
+	font: 33.5% Arial;
+}
+
+.quickOrder vl hl hl {
+	height: 98%;
+	width: 38.5%;
+	margin-left: 4.3%;
+	vertical-align: central;
+	background-image: url(order_textfield.png);
+}
+
+.quickOrder vl hl hl EditText {
+	height: 65%;
+	width: 50%;
+	text-align: right;
+	margin-top: 18%;
+	padding-top: 10%;
+	padding-bottom: 17%;
+	color: #ffffff;
+	font: 60% Arial;
+}
+
+.quickOrder vl hl hl TextView {
+	height: 67%;
+	width: 50%;
+	margin-top: 27%;
+	margin-left: 5%;
+	text-align: left;
+	vertical-align: central;
+	color: #ffffff;
+	font: 50% Arial;
+}
+
+.pack {
+	height: 65%;
+	width: 50%;
+	margin-top: 18%;
+	text-align: left;
+	margin-left: 4%;
+	padding-top: 10%;
+	padding-bottom: 17%;
+	color: #ffffff;
+	font: 60% Arial;
+}
+.numVar{
+	height: 65%;
+	width: 50%;
+	margin-top: 18%;
+	text-align: Center;
+	margin-left: 25%;
+	padding-top: 10%;
+	padding-bottom: 17%;
+	color: #ffffff;
+	font: 60% Arial;
+}

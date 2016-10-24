@@ -1,0 +1,67 @@
+.grid vl {
+	padding-top: 16%;
+}
+
+.swipe_layout {
+	height: 13.8mm;
+}
+
+.green_swipe {
+	height: 13.8mm;
+	width: 13.8mm;
+	background-color: #4dd865;
+}
+
+.green_swipe vl {
+	height: 100%;
+	width: 100%;
+}
+
+.green_swipe vl img {
+	background-image: url(galka.png);
+	height: 28%;
+	margin-top: 28%;
+	margin-left: 32.4%;
+}
+
+.green_swipe vl TextView {
+	height: 15%;
+	width: 100%;
+	margin-top: 10%;
+	text-align: center;
+	color: #fff;
+	font: 100% Arial;
+}
+
+.gray_swipe {
+	height: 13.8mm;
+	width: 13.8mm;
+	background-color: #b7b7b7;
+}
+
+.gray_swipe vl {
+	height: 100%;
+	width: 100%;
+}
+
+.gray_swipe vl img {
+	background-image: url(obratno.png);
+	height: 40%;
+	margin-top: 24%;
+	margin-left: 27%;
+}
+
+.gray_swipe vl TextView {
+	height: 15%;
+	width: 100%;
+	margin-top: 10%;
+	text-align: center;
+	color: #fff;
+	font: 100% Arial;
+}
+.caption{
+height: 100% auto;
+width: 100%;
+font: 5% Arial;
+white-space: normal;
+}

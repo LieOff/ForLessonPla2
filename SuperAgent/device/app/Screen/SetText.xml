@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c:Screen xmlns:c="BitMobile.Controls" xmlns:s="BitMobile.ValueStack" StyleSheet="Outlet.css">
+
+<s:Push Id="task" Value="$GetTask()"></s:Push>
+	<c:DockLayout>
+
+		<c:DockLayout CssClass="top_navigator">
+			<c:DockLayout Id="btnBack" CssClass="btn_back" OnEvent="Back" OnClickAction="$DoBackCheckAndSave()">
+				<c:Image />
+				<c:TextView Text="#back#" />
+			</c:DockLayout>
+			<c:DockLayout CssClass="btn_forward"></c:DockLayout>
+			<c:HorizontalLayout>
+				<c:TextView Text="#target#" />
+			</c:HorizontalLayout>
+		</c:DockLayout>
+		<c:HorizontalLine />
+			<c:DockLayout>
+				<c:MemoEdit CssClass="BIGMemo" Text="$task.TextTask" Id="TextForGoalContains"/>
+			</c:DockLayout>
+	</c:DockLayout>
+
+</c:Screen>
